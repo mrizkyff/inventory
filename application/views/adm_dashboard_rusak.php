@@ -35,7 +35,7 @@
                 <th>Username</th>
                 <th>Tanggal</th>
               </tr>
-            <tbody id="show_logSys">
+            <tbody id="show_brg_rusak">
             </tbody>
             <tfoot>
               <tr>
