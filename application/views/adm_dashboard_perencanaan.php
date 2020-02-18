@@ -40,7 +40,7 @@
                             <th>Merek</th>
                             <th>Nomor Seri</th>
                             <th>Harga</th>
-                            <th>Jumlah</th>
+                            <!-- <th>Jumlah</th> -->
                             <th>Keterangan</th>
                             <th>Spec</th>
                             <th>Tanggal</th>
@@ -59,7 +59,7 @@
                             <th>Merek</th>
                             <th>Nomor Seri</th>
                             <th>Harga</th>
-                            <th>Jumlah</th>
+                            <!-- <th>Jumlah</th> -->
                             <th>Keterangan</th>
                             <th>Spec</th>
                             <th>Tanggal</th>
@@ -121,8 +121,7 @@
                 <input type="text" class="form-control" placeholder="Harga Barang" id="harga" name="harga" required>
             </div>
             <div class="form-group">
-                <label for="jumlah">Jumlah</label>
-                <input type="text" class="form-control" placeholder="Jumlah Barang" id="jumlah" name="jumlah" required>
+                <input type="hidden" class="form-control" placeholder="Jumlah Barang" id="jumlah" name="jumlah" required>
             </div>
             <div class="form-group">
                 <label for="keterangan">Keterangan</label>
@@ -195,8 +194,8 @@
                 <input type="text" class="form-control" placeholder="Harga Barang" id="hargas" name="hargas">
             </div>
             <div class="form-group">
-                <label for="jumlahs">Jumlah</label>
-                <input type="text" class="form-control" placeholder="Jumlah Barang" id="jumlahs" name="jumlahs">
+                <!-- <label for="jumlahs">Jumlah</label> -->
+                <input type="hidden" class="form-control" placeholder="Jumlah Barang" id="jumlahs" name="jumlahs">
             </div>
             <div class="form-group">
                 <label for="keterangans">Keterangan</label>
@@ -294,8 +293,8 @@
                     <input type="text" class="form-control" placeholder="Harga Barang" id="hargax" name="hargax" disabled>
                 </div>
                 <div class="form-group">
-                    <label for="jumlahx">Jumlah</label>
-                    <input type="text" class="form-control" placeholder="Jumlah Barang" id="jumlahx" name="jumlahx" disabled>
+                    <!-- <label for="jumlahx">Jumlah</label> -->
+                    <input type="hidden" class="form-control" placeholder="Jumlah Barang" id="jumlahx" name="jumlahx" disabled>
                 </div>
                 <div class="form-group">
                     <label for="keteranganx">Keterangan</label>

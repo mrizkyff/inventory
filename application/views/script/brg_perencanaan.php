@@ -27,7 +27,7 @@
                                     '<td>'+data[i].merek+'</td>'+
                                     '<td>'+data[i].seri+'</td>'+
                                     '<td>'+data[i].harga+'</td>'+
-                                    '<td>'+data[i].jumlah+'</td>'+
+                                    // '<td>'+data[i].jumlah+'</td>'+
                                     '<td>'+data[i].keterangan+'</td>'+
                                     '<td>'+data[i].spec+'</td>'+
                                     '<td>'+data[i].tanggal+'</td>'+

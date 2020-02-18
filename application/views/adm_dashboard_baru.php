@@ -39,7 +39,7 @@
                             <th>Nama Barang</th>
                             <th>Merek</th>
                             <th>Nomor Seri</th>
-                            <th>Jumlah</th>
+                            <!-- <th>Jumlah</th> -->
                             <th>Keterangan</th>
                             <th>Spec</th>
                             <th>Foto</th>
@@ -58,7 +58,7 @@
                             <th>Nama Barang</th>
                             <th>Merek</th>
                             <th>Nomor Seri</th>
-                            <th>Jumlah</th>
+                            <!-- <th>Jumlah</th> -->
                             <th>Keterangan</th>
                             <th>Spec</th>
                             <th>Foto</th>
@@ -115,8 +115,8 @@
                 <input type="text" class="form-control" placeholder="Harga Barang" id="hargas" name="hargas">
             </div>
             <div class="form-group">
-                <label for="jumlahs">Jumlah</label>
-                <input type="text" class="form-control" placeholder="Jumlah Barang" id="jumlahs" name="jumlahs">
+                <!-- <label for="jumlahs">Jumlah</label> -->
+                <input type="hidden" class="form-control" placeholder="Jumlah Barang" id="jumlahs" name="jumlahs">
             </div>
             <div class="form-group">
                 <label for="keterangans">Keterangan</label>
