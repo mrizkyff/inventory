@@ -31,12 +31,23 @@
             return $hasil;
         }
 
-        function simpanBarang($nama, $jenis, $merek, $seri, $harga, $jumlah, $keterangan, $spec){
+        function simpanBarang($nama, $jenis, $merek, $seri, $harga, $keterangan, $spec){
             $tanggal = date("Y-m-d H:i:s");
             $status = "Perencanaan";
 
-            $hasil = $this->db->query("INSERT INTO daftar_barang (jenis, nama, merek, seri, harga, jumlah, keterangan, spec, tgl_perencanaan, status) VALUES ('$jenis','$nama','$merek','$seri','$harga','$jumlah','$keterangan','$spec','$tanggal', '$status')");
-            return $hasil;
+         
+            $dt = array(
+                'jenis' => $jenis,
+                'nama' => $nama,
+                'merek' => $merek,
+                'seri' => $seri,
+                'harga' => $harga,
+                'keterangan' => $keterangan,
+                'spec' => $spec,
+                'tgl_perencanaan' => $tanggal,
+                'status' => $status
+            );
+            return $this->db->insert('daftar_barang',$dt);
         }
         
         function updateBarang($id,$nama, $jenis, $merek, $seri, $harga, $keterangan, $spec){
