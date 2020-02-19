@@ -24,7 +24,7 @@
                                         
                                         '  <a class="text-primary" data-toggle="collapse" href="#collapseExample'+i+'" role="button" aria-expanded="false" aria-controls="collapseExample">'+
                                             '<i class="fas fa-info-circle"></i>'+
-                                        '</a>    '+data[i].namaBarang+
+                                        '</a>    '+data[i].nama+
                                         '<div class="collapse" id="collapseExample'+i+'">'+
                                         '<div class="card card-body">'+
                                         '<p>'+
@@ -39,17 +39,15 @@
                                     '<td>'+data[i].bagian+'</td>'+
                                     '<td>'+data[i].subBagian+'</td>'+
                                     '<td>'+
-                                        '<a href="javascript:;" class="btn btn-secondary btn-xs item_qr" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-qrcode"></i> QRCode</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-primary btn-xs item_barcode" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-barcode"></i> Barcode</a>    '+
+                                        '<a href="javascript:;" class="btn btn-secondary btn-xs item_qr" id="'+data[i].id+'" nama="'+data[i].nama+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tgl_register+'"> <i class="fas fa-qrcode"></i> QRCode</a>'+'  '+
+                                        '<a href="javascript:;" class="btn btn-primary btn-xs item_barcode" id="'+data[i].id+'" nama="'+data[i].nama+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tgl_register+'"> <i class="fas fa-barcode"></i> Barcode</a>    '+
                                         data[i].kodeRegister+
                                     '</td>'+
                                     '<td>'+'<img src="<?php echo base_url()?>/upload/img/'+data[i].foto+'" alt="" class="img-thumbnail zoom">'+'</td>'+
-                                    '<td>'+data[i].tanggal+'</td>'+
+                                    '<td>'+data[i].tgl_register+'</td>'+
                                     '<td style "text-align:right;">'+
-                                        // '<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].id+'">   Edit   </a>'+' '+
-                                        // '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id+'" nama="'+data[i].nama+'"> Hapus </a>'+' '+
-                                        '<a href="javascript:;" class="btn btn-info btn-xs item_edit" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].kodeBarang+'" nama="'+data[i].namaBarang+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'">Edit</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].kodeBarang+'" arr="'+data+'" nama="'+data[i].namaBarang+'">Rusak</a>'+
+                                        '<a href="javascript:;" class="btn btn-info btn-xs item_edit" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].id+'" nama="'+data[i].nama+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'">Edit</a>'+'  '+
+                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].id+'" arr="'+data+'" nama="'+data[i].nama+'">Rusak</a>'+
                                     '</td>'+
                                 '</tr>';
                     }
@@ -136,9 +134,32 @@
         // get modal rusak
         $('#show_brg_register').on('click','.item_rusak',function(){
             var nama = $(this).attr('nama');
+            var id = $(this).attr('data');
             console.log(nama);
+            console.log(id);    
+            $('#namez').val(nama);
+            $('#idz').val(id);
+            
             $("#textRusak").text("Konfirmasi bahwa barang "+nama+" rusak?");
             $('#modalRusak').modal('show');
+
+            // aksi rusak
+            $('#btn_konfirmasi').on('click',function(){
+                var kerusakan = $('#kerusakan').val();
+                var username = $('#logUsernames').val();
+                var action = $('#actions').val();
+                $.ajax({
+                    url: '<?php echo base_url("BrgRegister/barangRusak")?>',
+                    method: "POST",
+                    data: {id:id, kerusakan:kerusakan, nama:nama, username:username, action:action},
+                    dataType: "JSON",
+                    success: function(data){
+                        alert('Data berhasil diupdate');
+                        $('#modalRusak').modal('hide');
+                        tampilDataBarang();
+                    }
+                })
+            })
             
         })
 
@@ -166,6 +187,8 @@
                 }
             })
         })
+
+        
 
 
 
