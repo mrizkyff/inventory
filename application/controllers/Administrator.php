@@ -80,6 +80,15 @@ class Administrator extends CI_Controller
         $this->load->view('templates/adm_footer');
         $this->load->view('script/brg_rusak');
     }
+
+    function summary(){
+        $this->load->view('templates/adm_header');
+        $this->load->view('templates/adm_sidebar');
+        $this->load->view('adm_dashboard_summary');
+        $this->load->view('templates/adm_footer');
+        $this->load->view('script/brg_summary');
+    }
+
     function user_list(){
         $this->load->view('templates/adm_header');
         $this->load->view('templates/adm_sidebar');
