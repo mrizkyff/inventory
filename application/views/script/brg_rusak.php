@@ -6,7 +6,7 @@
         function tampilDataBarang(){
             $.ajax({
                 type : 'GET',
-                url : '<?php echo base_url("BrgRegister/dataBarang")?>',
+                url : '<?php echo base_url("BrgRusak/loadBarang")?>',
                 async : false,
                 dataType : "JSON",
                 success : function(data){
