@@ -210,6 +210,7 @@ class BrgRegister extends CI_Controller
         // update barang menjadi rusak
         $dt = array(
             'status' => $status,
+            'kerusakan' => $kerusakan,
             'tgl_rusak' => $tanggal
         );
         $data = $this->m_brgRegister->rusak($id, $dt);
