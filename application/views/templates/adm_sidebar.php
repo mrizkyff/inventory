@@ -66,7 +66,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'administrator/scan' ?>" class="nav-link">
+            <a href="<?php echo base_url().'administrator/summary' ?>" class="nav-link">
               <i class="nav-icon fas fa-swatchbook"></i>
               <p>
                 Rangkuman
