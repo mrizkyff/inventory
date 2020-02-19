@@ -238,10 +238,20 @@
             <center>
                 <p id="textRusak"></p>
             </center>
+                    <input type="text" id="logUsernames" name="logUsernames" value="<?php echo $username ?>">
+                    <input type="text" id="actions" name="actions" value="menandai barang rusak pada item">
+                    <input type="text" name="namez" id="namez" value=""> 
+                    <input type="text" name="idz" id="idz" value=""> 
+
+
+                <div class="form-group">
+                    <label for="kerusakan">Kerusakan</label>
+                    <textarea  class="form-control" name="kerusakan" id="kerusakan" cols="30" rows="5"></textarea>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Konfirmasi</button>
+                <button type="button" class="btn btn-primary" id="btn_konfirmasi">Konfirmasi</button>
             </div>
             </div>
         </div>
