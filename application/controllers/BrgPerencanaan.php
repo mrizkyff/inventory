@@ -26,7 +26,7 @@
             $keterangan = $this->input->post('keterangan');
             $spec = $this->input->post('spec');
             
-            $data = $this->m_brgPerencanaan->simpanBarang($nama, $jenis, $merek, $seri, $harga, $jumlah, $keterangan, $spec);
+            $data = $this->m_brgPerencanaan->simpanBarang($nama, $jenis, $merek, $seri, $harga, $keterangan, $spec);
 
             echo json_encode($data);
             
