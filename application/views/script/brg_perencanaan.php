@@ -2,7 +2,7 @@
   $(document).ready(function() {
       tampilDataBarang();
     $('#tableBarangPerencanaan').DataTable({
-        "order": [[10,"desc"]]
+        "order": [[9,"desc"]]
     });
 
     function reload_table(){
@@ -27,10 +27,9 @@
                                     '<td>'+data[i].merek+'</td>'+
                                     '<td>'+data[i].seri+'</td>'+
                                     '<td>'+data[i].harga+'</td>'+
-                                    // '<td>'+data[i].jumlah+'</td>'+
                                     '<td>'+data[i].keterangan+'</td>'+
                                     '<td>'+data[i].spec+'</td>'+
-                                    '<td>'+data[i].tanggal+'</td>'+
+                                    '<td>'+data[i].tgl_perencanaan+'</td>'+
                                     '<td style "text-align:right;">'+
                                         '<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].id+'">   Edit   </a>'+' '+
                                         '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id+'" nama="'+data[i].nama+'"> Hapus </a>'+' '+
@@ -53,21 +52,19 @@
         var merek = $('#merek').val();
         var seri = $('#seri').val();
         var harga = $('#harga').val();
-        var jumlah = $('#jumlah').val();
         var keterangan = $('#keterangan').val();
         var spec = $('#spec').val();
         $.ajax({
             type    : "POST",
             url     : "<?php echo base_url('BrgPerencanaan/simpanBarang')?>",
             dataType    : "JSON",
-            data : {id:id , jenis:jenis , nama:nama , merek:merek , seri:seri , harga:harga , jumlah:jumlah , keterangan:keterangan , spec:spec},
+            data : {id:id , jenis:jenis , nama:nama , merek:merek , seri:seri , harga:harga , keterangan:keterangan , spec:spec},
             success : function(data){
                 $('[name="jenis"]').val("");
                 $('[name="nama"]').val("");
                 $('[name="merek"]').val("");
                 $('[name="seri"]').val("");
                 $('[name="harga"]').val("");
-                $('[name="jumlah"]').val("");
                 $('[name="keterangan"]').val("");
                 $('[name="spec"]').val("");
                 $('#modalTambah').modal('hide');
@@ -103,7 +100,7 @@
             dataType : "JSON",
             data    : {id:kode},
             success : function(data){
-                $.each(data,function(id, jenis, nama, merek, seri, harga, jumlah, keterangan, spec){
+                $.each(data,function(id, jenis, nama, merek, seri, harga, keterangan, spec){
                     $('#modalEdit').modal('show');
                     $('[name="kodes"]').val(kode);
                     $('[name="namas"]').val(data.nama);
@@ -111,7 +108,6 @@
                     $('[name="mereks"]').val(data.merek);
                     $('[name="seris"]').val(data.seri);
                     $('[name="hargas"]').val(data.harga);
-                    $('[name="jumlahs"]').val(data.jumlah);
                     $('[name="keterangans"]').val(data.keterangan);
                     $('[name="specs"]').val(data.spec);
                 });
@@ -141,7 +137,7 @@
             dataType : "JSON",
             data    : {id:kode},
             success : function(data){
-                $.each(data,function(id, jenis, nama, merek, seri, harga, jumlah, keterangan, spec){
+                $.each(data,function(id, jenis, nama, merek, seri, harga , keterangan, spec){
                     $('#modalAcc').modal('show');
                     $('[name="kodex"]').val(kode);
                     $('[name="namax"]').val(data.nama);
@@ -149,7 +145,6 @@
                     $('[name="merekx"]').val(data.merek);
                     $('[name="serix"]').val(data.seri);
                     $('[name="hargax"]').val(data.harga);
-                    $('[name="jumlahx"]').val(data.jumlah);
                     $('[name="keteranganx"]').val(data.keterangan);
                     $('[name="specx"]').val(data.spec);
                 });
@@ -167,14 +162,13 @@
         var merek = $('#mereks').val();
         var seri = $('#seris').val();
         var harga = $('#hargas').val();
-        var jumlah = $('#jumlahs').val();
         var keterangan = $('#keterangans').val();
         var spec = $('#specs').val();
         $.ajax({
             type : "POST",
             url : '<?php echo base_url('BrgPerencanaan/updateBarang') ?>',
             dataType : "JSON",
-            data    : {id:id , jenis:jenis , nama:nama , merek:merek , seri:seri , harga:harga , jumlah:jumlah , keterangan:keterangan , spec:spec},
+            data    : {id:id , jenis:jenis , nama:nama , merek:merek , seri:seri , harga:harga , keterangan:keterangan , spec:spec},
             success : function(data){
                 $('[name="kodes"]').val("");
                 $('[name="jeniss"]').val("");
@@ -182,7 +176,6 @@
                 $('[name="mereks"]').val("");
                 $('[name="seris"]').val("");
                 $('[name="hargas"]').val("");
-                $('[name="jumlahs"]').val("");
                 $('[name="keterangans"]').val("");
                 $('[name="specs"]').val("");
                 $('#modalEdit').modal('hide');
@@ -251,15 +244,14 @@
         var merek = $('#merekx').val();
         var seri = $('#serix').val();
         var harga = $('#hargax').val();
-        var jumlah = $('#jumlahx').val();
         var keterangan = $('#keteranganx').val();
         var spec = $('#specx').val();
     
         $.ajax({
             type : "POST",
-            url : '<?php echo base_url('BrgPerencanaan/simpanBarangBaru') ?>',
+            url : '<?php echo base_url('BrgPerencanaan/konfirmasi') ?>',
             dataType : "JSON",
-            data    : {id:id , jenis:jenis , nama:nama , merek:merek , seri:seri , harga:harga , jumlah:jumlah , keterangan:keterangan , spec:spec},
+            data    : {id:id , jenis:jenis , nama:nama , merek:merek , seri:seri , harga:harga , keterangan:keterangan , spec:spec},
             success : function(data){
                 $('[name="kodex"]').val("");
                 $('[name="jenisx"]').val("");
@@ -267,7 +259,6 @@
                 $('[name="merekx"]').val("");
                 $('[name="serix"]').val("");
                 $('[name="hargax"]').val("");
-                $('[name="jumlahx"]').val("");
                 $('[name="keteranganx"]').val("");
                 $('[name="specx"]').val("");
                 $('#modalAcc').modal('hide');
