@@ -177,7 +177,8 @@ class BrgRegister extends CI_Controller
             'subBagian' => $subbag,
             'kodeRegister' => $kdRegister,
             'qrCode' => $qrname,
-            'barCode' => $barcodeName
+            'barCode' => $barcodeName,
+            'tgl_register' => $tanggal
         );
 
         $data = $this->m_brgRegister->update($dt, $idReg);
@@ -195,6 +196,36 @@ class BrgRegister extends CI_Controller
         $data = $this->m_brgRegister->saveLog($dt);
 
         echo json_encode($data);
+    }
+
+    function barangRusak(){
+        $tanggal = date("Y-m-d H:i:s");
+        $id = $this->input->post('id');
+        $kerusakan = $this->input->post('kerusakan');
+        $nama = $this->input->post('nama');
+        $action = $this->input->post('action');
+        $username = $this->input->post('username');
+        $status = 'Rusak';
+
+        // update barang menjadi rusak
+        $dt = array(
+            'status' => $status,
+            'tgl_rusak' => $tanggal
+        );
+        $data = $this->m_brgRegister->rusak($id, $dt);
+
+        // simpan di log
+        $dt = array(
+            'kode_brg' => $id,
+            'nama_brg' => $nama,
+            'edit_by' => $username,
+            'activity' => $action,
+            'date' => $tanggal,
+            'kerusakan' => $kerusakan
+        );
+        $data = $this->m_brgRegister->saveLog($dt);
+        echo json_encode($data);
+
     }
 
     
