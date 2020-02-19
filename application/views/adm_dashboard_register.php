@@ -238,10 +238,10 @@
             <center>
                 <p id="textRusak"></p>
             </center>
-                    <input type="text" id="logUsernames" name="logUsernames" value="<?php echo $username ?>">
-                    <input type="text" id="actions" name="actions" value="menandai barang rusak pada item">
-                    <input type="text" name="namez" id="namez" value=""> 
-                    <input type="text" name="idz" id="idz" value=""> 
+                    <input type="hidden" id="logUsernames" name="logUsernames" value="<?php echo $username ?>">
+                    <input type="hidden" id="actions" name="actions" value="menandai barang rusak pada item">
+                    <input type="hidden" name="namez" id="namez" value=""> 
+                    <input type="hidden" name="idz" id="idz" value=""> 
 
 
                 <div class="form-group">
