@@ -27,8 +27,9 @@
 
         function simpanBarang($nama, $jenis, $merek, $seri, $harga, $jumlah, $keterangan, $spec){
             $tanggal = date("Y-m-d H:i:s");
+            $status = "Perencanaan";
 
-            $hasil = $this->db->query("INSERT INTO brg_perencanaan (jenis, nama, merek, seri, harga, jumlah, keterangan, spec, tanggal) VALUES ('$jenis','$nama','$merek','$seri','$harga','$jumlah','$keterangan','$spec','$tanggal')");
+            $hasil = $this->db->query("INSERT INTO brg_perencanaan (jenis, nama, merek, seri, harga, jumlah, keterangan, spec, tanggal, status) VALUES ('$jenis','$nama','$merek','$seri','$harga','$jumlah','$keterangan','$spec','$tanggal', '$status')");
             return $hasil;
         }
         
