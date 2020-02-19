@@ -15,6 +15,7 @@
                     for(i=0;i<data.length; i++){
                         html += '<tr>'+
                                     '<td>'+(i+1)+'</td>'+
+                                    '<td>'+data[i].kodeBarang+'</td>'+
                                     '<td>'+data[i].jenis+'</td>'+
                                     '<td>'+
                                         
@@ -35,8 +36,8 @@
                                     '<td>'+data[i].bagian+'</td>'+
                                     '<td>'+data[i].subBagian+'</td>'+
                                     '<td>'+
-                                        '<a href="javascript:;" class="btn btn-secondary btn-xs item_qr" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-qrcode"></i> QRCode</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-primary btn-xs item_barcode" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-barcode"></i> Barcode</a>    '+
+                                        '<a class="btn btn-secondary btn-xs item_qr" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-qrcode"></i> QRCode</a>'+'  '+
+                                        '<a class="btn btn-primary btn-xs item_barcode" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-barcode"></i> Barcode</a>    '+
                                         data[i].kodeRegister+
                                     '</td>'+
                                     '<td>'+'<img src="<?php echo base_url()?>/upload/img/'+data[i].foto+'" alt="" class="img-thumbnail zoom">'+'</td>'+
@@ -45,7 +46,7 @@
                                         // '<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].id+'">   Edit   </a>'+' '+
                                         // '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id+'" nama="'+data[i].nama+'"> Hapus </a>'+' '+
                                         '<a href="javascript:;" class="btn btn-info btn-xs item_edit" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].kodeBarang+'" nama="'+data[i].namaBarang+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'">Edit</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].kodeBarang+'" arr="'+data+'" nama="'+data[i].nama+'">Rusak</a>'+
+                                        '<a href="javascript:;" class="btn btn-success btn-xs item_rusak" data="'+data[i].kodeBarang+'" arr="'+data+'" nama="'+data[i].nama+'">Perbaikan</a>'+
                                     '</td>'+
                                 '</tr>';
                     }
