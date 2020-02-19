@@ -67,9 +67,9 @@
           </li>
           <li class="nav-item">
             <a href="<?php echo base_url().'administrator/scan' ?>" class="nav-link">
-              <i class="nav-icon fas fa-qrcode"></i>
+              <i class="nav-icon fas fa-swatchbook"></i>
               <p>
-                Scan Barang
+                Rangkuman
               </p>
             </a>
           </li>
