@@ -74,9 +74,10 @@ class Administrator extends CI_Controller
         $this->load->view('script/brg_register');
     }
     function brg_rusak(){
+        $data['username'] = $this->session->userdata('username');
         $this->load->view('templates/adm_header');
         $this->load->view('templates/adm_sidebar');
-        $this->load->view('adm_dashboard_rusak');
+        $this->load->view('adm_dashboard_rusak',$data);
         $this->load->view('templates/adm_footer');
         $this->load->view('script/brg_rusak');
     }
