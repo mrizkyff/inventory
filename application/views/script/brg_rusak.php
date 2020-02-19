@@ -36,8 +36,8 @@
                                     '<td>'+data[i].bagian+'</td>'+
                                     '<td>'+data[i].subBagian+'</td>'+
                                     '<td>'+
-                                        '<a class="btn btn-secondary btn-xs item_qr" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-qrcode"></i> QRCode</a>'+'  '+
-                                        '<a class="btn btn-primary btn-xs item_barcode" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-barcode"></i> Barcode</a>    '+
+                                        '<a href="javascript:;" class="btn btn-secondary btn-xs item_qr" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-qrcode"></i> QRCode</a>'+'  '+
+                                        '<a href="javascript:;" class="btn btn-primary btn-xs item_barcode" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-barcode"></i> Barcode</a>    '+
                                         data[i].kodeRegister+
                                     '</td>'+
                                     '<td>'+'<img src="<?php echo base_url()?>/upload/img/'+data[i].foto+'" alt="" class="img-thumbnail zoom">'+'</td>'+
