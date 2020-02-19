@@ -23,7 +23,6 @@
             $merek = $this->input->post('merek');
             $seri = $this->input->post('seri');
             $harga = $this->input->post('harga');
-            $jumlah = $this->input->post('jumlah');
             $keterangan = $this->input->post('keterangan');
             $spec = $this->input->post('spec');
             
@@ -34,79 +33,41 @@
         }
 
         function updateBarang(){
-            $tanggal = date("Y-m-d H:i:s");
             $id = $this->input->post('id');
             $nama = $this->input->post('nama');
             $jenis = $this->input->post('jenis');
             $merek = $this->input->post('merek');
             $seri = $this->input->post('seri');
             $harga = $this->input->post('harga');
-            $jumlah = $this->input->post('jumlah');
             $keterangan = $this->input->post('keterangan');
             $spec = $this->input->post('spec');
             
-            $data = $this->m_brgPerencanaan->updateBarang($id,$nama, $jenis, $merek, $seri, $harga, $jumlah, $keterangan, $spec, $tanggal);
+            $data = $this->m_brgPerencanaan->updateBarang($id,$nama, $jenis, $merek, $seri, $harga, $keterangan, $spec);
 
             echo json_encode($data);
         }
 
         function hapusBarang(){
             $id = $this->input->post('id');
-            $data = $this->m_brgPerencanaan->hapusBarang($id);
+            $data = $this->m_brgPerencanaan->delete($id);
             echo json_encode($data);
         }
 
-        function updateJml(){
-            // $tanggal = date("Y-m-d H:i:s");
+
+
+        function konfirmasi(){
             $tanggal = date("Y-m-d H:i:s");
             $id = $this->input->post('id');
-            $nama = $this->input->post('nama');
-            $jenis = $this->input->post('jenis');
-            $merek = $this->input->post('merek');
-            $seri = $this->input->post('seri');
-            $harga = $this->input->post('harga');
-            $jumlah = $this->input->post('jumlah');
-            $keterangan = $this->input->post('keterangan');
-            $spec = $this->input->post('spec');
-
-            $data = $this->m_brgPerencanaan->updateJumlah($id,$jumlah);
-            $this->simpanBarangBaru($id, $nama, $jenis, $merek, $seri, $keterangan, $spec, $tanggal);
-            // if($data){
-            // }
-
-            echo json_encode($data);
-        }
-
-        function simpanBarangBaru(){
-            $tanggal = date("Y-m-d H:i:s");
-            $id = $this->input->post('id');
-            $nama = $this->input->post('nama');
-            $jenis = $this->input->post('jenis');
-            $merek = $this->input->post('merek');
-            $seri = $this->input->post('seri');
-            $harga = $this->input->post('harga');
-            $jumlah = $this->input->post('jumlah');
-            $keterangan = $this->input->post('keterangan');
-            $spec = $this->input->post('spec');
             $status = "Baru";
 
             $hasil = array(
-                'kodeBarang' => $id,
-                'nama' => $nama,
-                'jenis' => $jenis,
-                'merek' => $merek,
-                'seri' => $seri,
-                'jumlah' => $jumlah,
-                'keterangan' => $keterangan,
-                'spec' => $spec,
-                'tanggal' => $tanggal,
+                'tgl_baru' => $tanggal,
                 'status' => $status
             );
-            // $data = $this->m_brgPerencanaan->simpanBrgBaru($id, $nama, $jenis, $merek, $seri, $keterangan, $spec, $tanggal);
-            $data = $this->m_brgPerencanaan->simpanBrgBaru($hasil);
 
-            // hapus data lama di perencanaan
-            $data = $this->m_brgPerencanaan->hapusBarang($id);
+            // konfirmasi dengan mengupdate data diatas
+            $data = $this->m_brgPerencanaan->acc($id, $hasil);
+
 
             echo json_encode($data);
         }
@@ -125,7 +86,7 @@
                 'activity' => $action,
                 'date' => $tanggal
             );
-            $data = $this->m_brgPerencanaan->saveLog($data);
+            $data = $this->m_brgPerencanaan->writeLog($data);
 
             echo json_encode($data);
         }
