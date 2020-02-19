@@ -2,6 +2,7 @@
     class M_brgRegister extends CI_Model
     {
         function listBarang(){
+            $this->db->order_by('tgl_register','DESC');
             $this->db->where('status','Terdaftar');
             return $this->db->get('daftar_barang')->result();
         }
