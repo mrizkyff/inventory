@@ -23,34 +23,43 @@
           Daftar Barang Rusak
         </div>
         <div class="card-body">
-          <table id="tableBarangRusak" class="table display nowrap dataTable dtr-inline collapsed">
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>ID</th>
-                <th>Activity</th>
-                <th>id Barang</th>
-                <th>Item</th>
-                <th>id User</th>
-                <th>Username</th>
-                <th>Tanggal</th>
-              </tr>
-            <tbody id="show_brg_rusak">
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>No.</th>
-                <th>ID</th>
-                <th>Activity</th>
-                <th>id Barang</th>
-                <th>Item</th>
-                <th>id User</th>
-                <th>Username</th>
-                <th>Tanggal</th>
-              </tr>
-            </tfoot>
-            </thead>
-          </table>
+        <table class="table display nowrap dataTable dtr-inline collapsed" id="tableBarangRusak">
+                        <thead>
+                        <tr align='left'>
+                            <th width="20">No</th>
+                            <th width="20">id</th>
+                            <th>Jenis</th>
+                            <th>Nama Barang</th>
+                            <th>Merek</th>
+                            <th>Nomor Seri</th>
+                            <!-- <th>Jumlah</th> -->
+                            <th>Keterangan</th>
+                            <th>Spec</th>
+                            <th>Foto</th>
+                            <th>Tanggal</th>
+                            <th width="50">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="show_brg_rusak">
+                        
+                        </tbody>
+                        <tfoot>
+                        <tr align="left">
+                            <th>No</th>
+                            <th>id</th>
+                            <th>Jenis</th>
+                            <th>Nama Barang</th>
+                            <th>Merek</th>
+                            <th>Nomor Seri</th>
+                            <!-- <th>Jumlah</th> -->
+                            <th>Keterangan</th>
+                            <th>Spec</th>
+                            <th>Foto</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </tfoot>
+                </table>
         </div>
       </div>
       <!-- akhir card log system -->
