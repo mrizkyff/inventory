@@ -121,6 +121,7 @@
             $foto = $this->input->post("foto");
             $bagian = $this->input->post("bagian");
             $subbag = $this->input->post("subbag");
+            $status = "Terdaftar";
 
 
 
@@ -287,7 +288,8 @@
                 'kodeRegister' => $kdRegister,
                 'tanggal' => $tanggal,
                 'qrCode' => $qrname,
-                'barCode' => $barcodeName
+                'barCode' => $barcodeName,
+                'status' => $status
             );
 
             $data = $this->m_brgBaru->register($hasil);
