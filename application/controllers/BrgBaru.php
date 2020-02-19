@@ -17,12 +17,7 @@
             echo json_encode($data);
         }
 
-        function hapusBarang(){
-            $id = $this->input->post('idBaru');
-            $data = $this->m_brgBaru->delete($id);
-            
-            echo json_encode($data);
-        }
+        
 
         // upload foto
         public function do_upload()
@@ -67,58 +62,16 @@
                     
                     echo json_encode($data);
                 }
-
-                // echo json_encode($data);
-
-                // echo json_encode($hasil);
-
-                // if ( ! $this->upload->do_upload('foto'))
-                // {
-                //         // $error = array('error' => $this->upload->display_errors());
-
-                //         // $this->load->view('upload_form', $error);
-				// 		// var_dump($error);
-				// 		// $this->session->set_flashdata('gagal_tambah','Dokumen Gagal Disimpan, File Error!');
-				// 		// redirect('skripsi/index');
-                // }
-                // else
-                // {
-                //         // $upload_data = array('upload_data' => $this->upload->data());
-                //         // $this->load->view('upload_success', $data);
-                //         // var_dump($upload_data);
-                // 		$upload_data = $this->upload->data();
-                //         // $data = array(
-                //         // 	'file' => $upload_data['file_name']
-                //         // );
-
-                //         $this->updateFoto($upload_data['file_name']);
-                //         // var_dump($data);
-
-                // }
         }
 
-        // update foto
-        public function updateFoto($filefoto){
-        	$id = $this->input->post('id');
-
-			$hasil = array(
-				'foto' => $filefoto
-			);
-            $data = $this->m_brgBaru->updateData($hasil,$id);
-            echo json_encode($data);
-			
-        }
+        
 
         function registerBarang(){
             $tanggal = date("Y-m-d H:i:s");
             $kodeBarang = $this->input->post("kodeBarang");
+            $id = $this->input->post('id');
+            $nama = $this->input->post('nama');
             $jenis = $this->input->post("jenis");
-            $nama = $this->input->post("nama");
-            $merek = $this->input->post("merek");
-            $seri = $this->input->post("seri");
-            $keterangan = $this->input->post("keterangan");
-            $spec = $this->input->post("spec");
-            $foto = $this->input->post("foto");
             $bagian = $this->input->post("bagian");
             $subbag = $this->input->post("subbag");
             $status = "Terdaftar";
@@ -275,24 +228,16 @@
 
 
             $hasil = array(
-                'kodeBarang' => $kodeBarang,
-                'jenis' => $jenis,
-                'namaBarang' => $nama,
-                'merek' => $merek,
-                'seri' => $seri,
-                'keterangan' => $keterangan,
-                'spec' => $spec,
                 'bagian' => $bagian,
                 'subBagian' => $subbag,
-                'foto' => $foto,
                 'kodeRegister' => $kdRegister,
-                'tanggal' => $tanggal,
+                'tgl_register' => $tanggal,
                 'qrCode' => $qrname,
                 'barCode' => $barcodeName,
                 'status' => $status
             );
 
-            $data = $this->m_brgBaru->register($hasil);
+            $data = $this->m_brgBaru->register($id,$hasil);
 
 
             // log khusus untuk register barang stelah register barang berhasil
