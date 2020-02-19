@@ -8,7 +8,6 @@
         public function loadBarang(){
             $data = $this->m_brgRusak->tampilBarang();
             echo json_encode($data);
-            
         }
     }
     
