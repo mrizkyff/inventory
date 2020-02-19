@@ -49,7 +49,7 @@
                                         // '<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].id+'">   Edit   </a>'+' '+
                                         // '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id+'" nama="'+data[i].nama+'"> Hapus </a>'+' '+
                                         '<a href="javascript:;" class="btn btn-info btn-xs item_edit" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].kodeBarang+'" nama="'+data[i].namaBarang+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'">Edit</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].kodeBarang+'" arr="'+data+'" nama="'+data[i].nama+'">Rusak</a>'+
+                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].kodeBarang+'" arr="'+data+'" nama="'+data[i].namaBarang+'">Rusak</a>'+
                                     '</td>'+
                                 '</tr>';
                     }
@@ -135,6 +135,9 @@
 
         // get modal rusak
         $('#show_brg_register').on('click','.item_rusak',function(){
+            var nama = $(this).attr('nama');
+            console.log(nama);
+            $("#textRusak").text("Konfirmasi bahwa barang "+nama+" rusak?");
             $('#modalRusak').modal('show');
             
         })
