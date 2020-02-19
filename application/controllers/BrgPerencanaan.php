@@ -88,6 +88,7 @@
             $jumlah = $this->input->post('jumlah');
             $keterangan = $this->input->post('keterangan');
             $spec = $this->input->post('spec');
+            $status = "Baru";
 
             $hasil = array(
                 'kodeBarang' => $id,
@@ -98,7 +99,8 @@
                 'jumlah' => $jumlah,
                 'keterangan' => $keterangan,
                 'spec' => $spec,
-                'tanggal' => $tanggal
+                'tanggal' => $tanggal,
+                'status' => $status
             );
             // $data = $this->m_brgPerencanaan->simpanBrgBaru($id, $nama, $jenis, $merek, $seri, $keterangan, $spec, $tanggal);
             $data = $this->m_brgPerencanaan->simpanBrgBaru($hasil);
