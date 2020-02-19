@@ -123,44 +123,47 @@
             else if(strcmp($subbag,'PTI-Bengkel')==0){
                 $kdSubBagian = '06';
             }
-            else if(strcmp($subbag,'Hublang')==0){
+            else if(strcmp($subbag,'Teknik')==0){
                 $kdSubBagian = '07';
             }
-            else if(strcmp($subbag,'Perencanaan')==0){
+            else if(strcmp($subbag,'Hublang')==0){
                 $kdSubBagian = '08';
             }
-            else if(strcmp($subbag,'Asset')==0){
+            else if(strcmp($subbag,'Perencanaan')==0){
                 $kdSubBagian = '09';
             }
-            else if(strcmp($subbag,'Penertiban')==0){
+            else if(strcmp($subbag,'Asset')==0){
                 $kdSubBagian = '10';
             }
-            else if(strcmp($subbag,'PPTKA')==0){
-                $kdSubBagian = 11;
+            else if(strcmp($subbag,'Penertiban')==0){
+                $kdSubBagian = '11';
             }
-            else if(strcmp($subbag,'R. Server')==0){
+            else if(strcmp($subbag,'PPTKA')==0){
                 $kdSubBagian = 12;
             }
-            else if(strcmp($subbag,'Umum')==0){
+            else if(strcmp($subbag,'R. Server')==0){
                 $kdSubBagian = 13;
             }
-            else if(strcmp($subbag,'Quality Control')==0){
+            else if(strcmp($subbag,'Umum')==0){
                 $kdSubBagian = 14;
             }
-            else if(strcmp($subbag,'R. Laborat')==0){
+            else if(strcmp($subbag,'Quality Control')==0){
                 $kdSubBagian = 15;
             }
-            else if(strcmp($subbag,'Poli')==0){
+            else if(strcmp($subbag,'R. Laborat')==0){
                 $kdSubBagian = 16;
             }
-            else if(strcmp($subbag,'Humas')==0){
+            else if(strcmp($subbag,'Poli')==0){
                 $kdSubBagian = 17;
             }
-            else if(strcmp($subbag,'Keuangan')==0){
+            else if(strcmp($subbag,'Humas')==0){
                 $kdSubBagian = 18;
             }
-            else if(strcmp($subbag,'Kamtib')==0){
+            else if(strcmp($subbag,'Keuangan')==0){
                 $kdSubBagian = 19;
+            }
+            else if(strcmp($subbag,'Kamtib')==0){
+                $kdSubBagian = 20;
             }
 
 
