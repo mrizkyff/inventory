@@ -30,7 +30,11 @@
                                         '<p>'+
                                             '<b>Nomor Seri :</b>'+data[i].seri+'<br>'+
                                             '<b>Keterangan :</b>'+data[i].keterangan+'<br>'+
-                                            '<b>Nomor Spesifikasi :</b>'+data[i].spec+
+                                            '<b>Spesifikasi :</b>'+data[i].spec+'<br>'+
+                                            '<b>Harga :</b>'+data[i].harga+'<br>'+
+                                            '<b>History Perbaikan :</b>'+data[i].perbaikan+'<br>'+
+                                            '<b>History Kerusakan :</b>'+data[i].kerusakan+'<br>'+
+                                            '<b>History Upgrade :</b>'+data[i].upgrade+
                                         '</p>'+
                                         '</div>'+
                                         '</div>'+
@@ -47,7 +51,7 @@
                                     '<td>'+data[i].tgl_register+'</td>'+
                                     '<td style "text-align:right;">'+
                                         '<a href="javascript:;" class="btn btn-info btn-xs item_edit" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].id+'" nama="'+data[i].nama+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'">Edit</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].id+'" arr="'+data+'" nama="'+data[i].nama+'">Rusak</a>'+
+                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].id+'" arr="'+data+'" nama="'+data[i].nama+'" rusak="'+data[i].kerusakan+'">Rusak</a>'+
                                     '</td>'+
                                 '</tr>';
                     }
@@ -135,6 +139,7 @@
         $('#show_brg_register').on('click','.item_rusak',function(){
             var nama = $(this).attr('nama');
             var id = $(this).attr('data');
+            var rusak = $(this).attr('rusak');
             console.log(nama);
             console.log(id);    
             $('#namez').val(nama);
@@ -146,6 +151,7 @@
             // aksi rusak
             $('#btn_konfirmasi').on('click',function(){
                 var kerusakan = $('#kerusakan').val();
+                kerusakan = rusak+ ";"+ " update: "+kerusakan;
                 var username = $('#logUsernames').val();
                 var action = $('#actions').val();
                 $.ajax({
