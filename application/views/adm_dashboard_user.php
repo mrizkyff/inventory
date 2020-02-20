@@ -134,7 +134,7 @@
         <!--END MODAL HAPUS-->
 
 
-        <!-- modal edit barang -->
+        <!-- modal edit user -->
         <div class="modal" tabindex="-1" role="dialog" id="modalEdit">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -175,10 +175,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btn_simpan_user">Simpan</button>
+                    <button type="button" class="btn btn-primary" id="btn_update_user">Update</button>
                 </form>
             </div>
             </div>
         </div>
         </div>
-        <!-- akhir modal edit barang -->
+        <!-- akhir modal edit user -->
