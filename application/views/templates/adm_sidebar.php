@@ -90,6 +90,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="<?php echo base_url().'administrator/setting' ?>" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Pengaturan Program
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="<?php echo base_url().'administrator/profile' ?>" class="nav-link">
               <i class="nav-icon fas fa-user-circle"></i>
               <p>
