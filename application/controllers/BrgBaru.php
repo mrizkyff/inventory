@@ -168,31 +168,40 @@
 
 
             if(strcmp($jenis,'GPS')==0){
-                $kdJenis = "G";
+                $kdJenis = $this->m_brgBaru->kodeJenis('gps');
+                $kdJenis = $kdJenis[0]->gps;
             }
             else if(strcmp($jenis,'Komputer')==0){
-                $kdJenis = "K";
+                $kdJenis = $this->m_brgBaru->kodeJenis('komputer');
+                $kdJenis = $kdJenis[0]->komputer;
             }
             else if(strcmp($jenis,'Laptop')==0){
-                $kdJenis = "L";
+                $kdJenis = $this->m_brgBaru->kodeJenis('laptop');
+                $kdJenis = $kdJenis[0]->laptop;
             }
             else if(strcmp($jenis,'Monitor')==0){
-                $kdJenis = "M";
+                $kdJenis = $this->m_brgBaru->kodeJenis('monitor');
+                $kdJenis = $kdJenis[0]->monitor;
             }
             else if(strcmp($jenis,'Printer')==0){
-                $kdJenis = "P";
+                $kdJenis = $this->m_brgBaru->kodeJenis('printer');
+                $kdJenis = $kdJenis[0]->printer;
             }
             else if(strcmp($jenis,'Proyektor')==0){
-                $kdJenis = "PR";
+                $kdJenis = $this->m_brgBaru->kodeJenis('proyektor');
+                $kdJenis = $kdJenis[0]->proyektor;
             }
             else if(strcmp($jenis,'Scanner')==0){
-                $kdJenis = "S";
+                $kdJenis = $this->m_brgBaru->kodeJenis('scanner');
+                $kdJenis = $kdJenis[0]->scanner;
             }
             else if(strcmp($jenis,'UPS')==0){
-                $kdJenis = "U";
+                $kdJenis = $this->m_brgBaru->kodeJenis('ups');
+                $kdJenis = $kdJenis[0]->ups;
             }
             else if(strcmp($jenis,'Lain-Lain')==0){
-                $kdJenis = "LL";
+                $kdJenis = $this->m_brgBaru->kodeJenis('lain');
+                $kdJenis = $kdJenis[0]->lain;
             }
 
             $kdRegister = $prefix.".".$kdBagian.".".$kdSubBagian.".".$kdJenis."".$kodeBarang;
