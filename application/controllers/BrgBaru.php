@@ -80,90 +80,118 @@
 
 
             // menghitung kode register untuk qr
-            $prefix = '03';
+            $prefix = $this->m_brgBaru->kodePrimary();
+            $prefix = $prefix[0]->primary;
+            
             $kdBagian = '';
             $kdSubBagian = '';
             $kdJenis = '';
 
             if(strcmp($bagian,'Selatan')==0){
-                $kdBagian = 31;
+                $kdBagian = $this->m_brgBaru->kodeBagian('selatan');
+                $kdBagian = $kdBagian[0]->selatan;
             }
             else if(strcmp($bagian,'Barat')==0){
-                $kdBagian = 32;
+                $kdBagian = $this->m_brgBaru->kodeBagian('barat');
+                $kdBagian = $kdBagian[0]->barat;
             }
             else if(strcmp($bagian,'Timur')==0){
-                $kdBagian = 33;
+                $kdBagian = $this->m_brgBaru->kodeBagian('timur');
+                $kdBagian = $kdBagian[0]->timur;
             }
             else if(strcmp($bagian, 'Utara')==0){
-                $kdBagian = 34;
+                $kdBagian = $this->m_brgBaru->kodeBagian('utara');
+                $kdBagian = $kdBagian[0]->utara;
             }
             else if(strcmp($bagian,'Tengah')==0){
-                $kdBagian = 35;
+                $kdBagian = $this->m_brgBaru->kodeBagian('tengah');
+                $kdBagian = $kdBagian[0]->tengah;
             }
 
 
             if(strcmp($subbag,'Direktur Utama')==0){
-                $kdSubBagian = '00';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('dirut');
+                $kdSubBagian = $kdSubBagian[0]->dirut;
             }
             else if(strcmp($subbag,'Direktur Umum')==0){
-                $kdSubBagian = '01';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('dirum');
+                $kdSubBagian = $kdSubBagian[0]->dirum;
             }
             else if(strcmp($subbag,'Direktur Teknik')==0){
-                $kdSubBagian = '02';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('dirtek');
+                $kdSubBagian = $kdSubBagian[0]->dirtek;
             }
             else if(strcmp($subbag,'Kepala Cabang')==0){
-                $kdSubBagian = '03';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('kacab');
+                $kdSubBagian = $kdSubBagian[0]->kacab;
             }
             else if(strcmp($subbag,'Kepala Bagian')==0){
-                $kdSubBagian = '04';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('kabag');
+                $kdSubBagian = $kdSubBagian[0]->kabag;
             }
             else if(strcmp($subbag,'Admin & Umum')==0){
-                $kdSubBagian = '05';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('admin');
+                $kdSubBagian = $kdSubBagian[0]->admin;
             }
             else if(strcmp($subbag,'PTI-Bengkel')==0){
-                $kdSubBagian = '06';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('pti');
+                $kdSubBagian = $kdSubBagian[0]->pti;
             }
             else if(strcmp($subbag,'Teknik')==0){
-                $kdSubBagian = '07';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('teknik');
+                $kdSubBagian = $kdSubBagian[0]->teknik;
             }
             else if(strcmp($subbag,'Hublang')==0){
-                $kdSubBagian = '08';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('hublang');
+                $kdSubBagian = $kdSubBagian[0]->hublang;
             }
             else if(strcmp($subbag,'Perencanaan')==0){
-                $kdSubBagian = '09';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('perencanaan');
+                $kdSubBagian = $kdSubBagian[0]->perencanaan;
             }
             else if(strcmp($subbag,'Asset')==0){
-                $kdSubBagian = '10';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('asset');
+                $kdSubBagian = $kdSubBagian[0]->asset;
             }
             else if(strcmp($subbag,'Penertiban')==0){
-                $kdSubBagian = '11';
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('penertiban');
+                $kdSubBagian = $kdSubBagian[0]->penertiban;
             }
             else if(strcmp($subbag,'PPTKA')==0){
-                $kdSubBagian = 12;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('pptka');
+                $kdSubBagian = $kdSubBagian[0]->pptka;
             }
             else if(strcmp($subbag,'R. Server')==0){
-                $kdSubBagian = 13;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('server');
+                $kdSubBagian = $kdSubBagian[0]->server;
             }
             else if(strcmp($subbag,'Umum')==0){
-                $kdSubBagian = 14;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('umum');
+                $kdSubBagian = $kdSubBagian[0]->umum;
             }
             else if(strcmp($subbag,'Quality Control')==0){
-                $kdSubBagian = 15;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('qc');
+                $kdSubBagian = $kdSubBagian[0]->qc;
             }
             else if(strcmp($subbag,'R. Laborat')==0){
-                $kdSubBagian = 16;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('lab');
+                $kdSubBagian = $kdSubBagian[0]->lab;
             }
             else if(strcmp($subbag,'Poli')==0){
-                $kdSubBagian = 17;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('poli');
+                $kdSubBagian = $kdSubBagian[0]->poli;
             }
             else if(strcmp($subbag,'Humas')==0){
-                $kdSubBagian = 18;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('humas');
+                $kdSubBagian = $kdSubBagian[0]->humas;
             }
             else if(strcmp($subbag,'Keuangan')==0){
-                $kdSubBagian = 19;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('keuangan');
+                $kdSubBagian = $kdSubBagian[0]->keuangan;
             }
             else if(strcmp($subbag,'Kamtib')==0){
-                $kdSubBagian = 20;
+                $kdSubBagian = $this->m_brgBaru->kodeSubBagian('kamtib');
+                $kdSubBagian = $kdSubBagian[0]->kamtib;
             }
 
 

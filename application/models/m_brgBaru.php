@@ -24,9 +24,21 @@
             $this->db->where('id',$id);
             return $this->db->update('daftar_barang',$data);
         }
+        function kodePrimary($primary){
+            $this->db->select($primary);
+            return $this->db->get('setting_primary')->result();
+        }
         function kodeJenis($jenis){
             $this->db->select($jenis);
             return $this->db->get('setting_jenis')->result();
+        }
+        function kodeBagian($bagian){
+            $this->db->select($bagian);
+            return $this->db->get('setting_bagian')->result();
+        }
+        function kodeSubBagian($subbag){
+            $this->db->select($subbag);
+            return $this->db->get('setting_subbag')->result();
         }
 
         

@@ -103,9 +103,10 @@
                 $.ajax({
                     url: "<?php echo base_url('BrgBaru/registerBarang') ?>",
                     method: "POST",
-                    dataType: "JSON",
+                    // dataType: "JSON",
                     data: {kodeBarang:kodeBarang,jenis:jenis, bagian:bagian, subbag:subbag, id:id, username:username, action:action, nama:nama},
                     success: function(data){
+                        console.log(data);
                         alert("Registrasi barang berhasil!");
                         $('#modalRegister').modal('hide');
                         tampilDataBarang();

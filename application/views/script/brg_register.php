@@ -183,7 +183,7 @@
             $.ajax({
                 url: "<?php echo base_url('BrgRegister/updateBarang') ?>",
                 method: "POST",
-                dataType: "JSON",
+                // dataType: "JSON",
                 data: {idBarang:idBarang, namaBarang:namaBarang, bagian:bagian, subbag:subbag, username:username, action:action, idReg:idReg, jenis:jenis},
                 success: function(data){
                     console.log(data);
