@@ -111,6 +111,14 @@ class Administrator extends CI_Controller
         echo json_encode($data);
     }
 
+    function setting(){
+        $this->load->view('templates/adm_header');
+        $this->load->view('templates/adm_sidebar');
+        $this->load->view('su_dashboard_setting');
+        $this->load->view('templates/adm_footer');
+        $this->load->view('script/su_setting');
+    }
+
     function log_system(){
         $this->load->view('templates/adm_header');
         $this->load->view('templates/adm_sidebar');
