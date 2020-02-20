@@ -1,8 +1,9 @@
 <?php
 class M_barang extends CI_Model
 {
-    function cek_jumlah($table){
-        return $this->db->get($table);
+    function cekJumlah($status){
+        $this->db->where('status',$status);
+        return $this->db->get('daftar_barang');
     }
 
     function logList(){
