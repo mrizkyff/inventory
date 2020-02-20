@@ -85,9 +85,9 @@ class Administrator extends CI_Controller
     function summary(){
         $this->load->view('templates/adm_header');
         $this->load->view('templates/adm_sidebar');
-        $this->load->view('adm_dashboard_summary');
+        $this->load->view('adm_dashboard_rangkuman');
         $this->load->view('templates/adm_footer');
-        $this->load->view('script/brg_summary');
+        $this->load->view('script/brg_rangkuman');
     }
 
     function user_list(){
