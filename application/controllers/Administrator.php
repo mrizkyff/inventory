@@ -18,10 +18,15 @@ class Administrator extends CI_Controller
     }
 
     function cekJumlah(){
-        $perencanaan = $this->m_barang->cek_jumlah("brg_perencanaan")->num_rows();
-        $baru = $this->m_barang->cek_jumlah("brg_baru")->num_rows();
-        $register = $this->m_barang->cek_jumlah("brg_register")->num_rows();
-        $rusak = $this->m_barang->cek_jumlah("brg_rusak")->num_rows();
+        // $perencanaan = $this->m_barang->cek_jumlah("brg_perencanaan")->num_rows();
+        // $baru = $this->m_barang->cek_jumlah("brg_baru")->num_rows();
+        // $register = $this->m_barang->cek_jumlah("brg_register")->num_rows();
+        // $rusak = $this->m_barang->cek_jumlah("brg_rusak")->num_rows();
+
+        $perencanaan = $this->m_barang->cekJumlah('Perencanaan')->num_rows();
+        $baru = $this->m_barang->cekJumlah('Baru')->num_rows();
+        $register = $this->m_barang->cekJumlah('Terdaftar')->num_rows();
+        $rusak = $this->m_barang->cekJumlah('Rusak')->num_rows();
 
         $jumlah = array(
             $perencanaan,
@@ -34,6 +39,7 @@ class Administrator extends CI_Controller
     }
     function index(){
         $data['jumlah'] = $this->cekJumlah();
+        $data['idUser'] = $this->session->userdata('idUser');
         
         // var_dump($data);
         $this->load->view('templates/adm_header');
