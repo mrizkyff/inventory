@@ -27,7 +27,11 @@
                                         '<p>'+
                                             '<b>Nomor Seri :</b>'+data[i].seri+'<br>'+
                                             '<b>Keterangan :</b>'+data[i].keterangan+'<br>'+
-                                            '<b>Nomor Spesifikasi :</b>'+data[i].spec+
+                                            '<b>Nomor Spesifikasi :</b>'+data[i].spec+'<br>'+
+                                            '<b>Harga :</b>'+data[i].harga+'<br>'+
+                                            '<b>History Perbaikan :</b>'+data[i].perbaikan+'<br>'+
+                                            '<b>History Kerusakan :</b>'+data[i].kerusakan+'<br>'+
+                                            '<b>History Upgrade :</b>'+data[i].upgrade+
                                         '</p>'+
                                         '</div>'+
                                         '</div>'+
