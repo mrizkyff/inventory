@@ -24,6 +24,10 @@
             $this->db->where('id',$id);
             return $this->db->update('daftar_barang',$data);
         }
+        function kodeJenis($jenis){
+            $this->db->select($jenis);
+            return $this->db->get('setting_jenis')->result();
+        }
 
         
     }
