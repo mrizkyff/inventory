@@ -7,7 +7,7 @@
         function cariId($data){
             $this->db->where($data);
             $this->db->select('id');
-            return $this->db->get('privilege');
+            return $this->db->get('privilege')->result();
         }
     }
     

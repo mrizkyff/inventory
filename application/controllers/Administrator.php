@@ -126,7 +126,6 @@ class Administrator extends CI_Controller
         $this->load->view('templates/adm_footer');
         $this->load->view('script/system_log');
     }
-
 }
 
 
