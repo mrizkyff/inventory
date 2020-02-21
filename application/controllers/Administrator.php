@@ -113,6 +113,10 @@ class Administrator extends CI_Controller
     }
 
     function setting(){
+        // retrieve data kode primary dari database 
+        $kodePrimary = $this->m_setting->kodePrimary();
+        $primary = $kodePrimary[0]->primary;
+
         // retrieve data kode jenis dari database
         $kodeJenis = $this->m_setting->kodeJenis();
         $gps = $kodeJenis[0]->gps;
@@ -158,6 +162,7 @@ class Administrator extends CI_Controller
         $kamtib = $kodeSubbag[0]->kamtib;
         
         $data = array(
+            'primary' => $primary,
             'gps' => $gps,
             'komputer' => $komputer,
             'laptop' => $laptop,
@@ -200,6 +205,16 @@ class Administrator extends CI_Controller
         $this->load->view('su_dashboard_setting',$data);
         $this->load->view('templates/adm_footer');
         $this->load->view('script/su_setting');
+    }
+
+
+    function profile(){
+        $data['idUser'] = $this->session->userdata('idUser');
+        $this->load->view('templates/adm_header');
+        $this->load->view('templates/adm_sidebar');
+        $this->load->view('adm_profile',$data);
+        $this->load->view('templates/adm_footer');
+        $this->load->view('script/adm_profile');
     }
 
     function log_system(){
