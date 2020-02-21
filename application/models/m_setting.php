@@ -1,6 +1,9 @@
 <?php
     class M_setting extends CI_Model
     {
+        function kodePrimary(){
+            return $this->db->get('setting_primary')->result();
+        }
         function kodeJenis(){
             return $this->db->get('setting_jenis')->result();
         }
@@ -9,6 +12,9 @@
         }
         function kodeSubBagian(){
             return $this->db->get('setting_subbag')->result();
+        }
+        function updatePrimary($data){
+            return $this->db->update('setting_primary',$data);
         }
         function updateJenis($data){
             $this->db->where('id','1');
