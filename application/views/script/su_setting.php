@@ -1,6 +1,18 @@
 <script>
     $(document).ready(function(){
         $('#btn_simpan').on('click',function(){
+            // update kode primary
+            var primary = $('#primary').val();
+            $.ajax({
+                url: '<?php echo base_url('Setting/updateKodePrimary') ?>',
+                method: 'POST',
+                dataType: "JSON",
+                data: {primary:primary},
+                success: function(data){
+                    alert('kode primary berhasil di update');
+                }
+            })
+
             // update kode jenis
             var gps = $('#gps').val();
             var komputer = $('#komputer').val();
