@@ -6,6 +6,14 @@
             $this->load->model('m_setting');
         }
 
+        function updateKodePrimary(){
+            $dt = array(
+                'primary' => $this->input->post('primary'),
+            );
+            $data = $this->m_setting->updatePrimary($dt);
+            echo json_encode($data);
+        }
+
         function updateKodeJenis(){
             $dt = array(
                 'gps' => $this->input->post('gps'),
