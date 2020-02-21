@@ -185,6 +185,7 @@
 
                     </div>
                 </div>
+                <button class="btn btn-primary" id="btn_simpan" style="float:right;">Simpan</button>
             </div>
         </div>
         </div>
