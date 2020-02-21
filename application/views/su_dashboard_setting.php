@@ -25,6 +25,15 @@
                     <div class="container">
                     <div class="row">
                         <div class="col">
+                        <h3>Kode Primary</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="primary">Kode Primary</label>
+                                    <input type="text" name="primary" id="primary" value="<?php echo $primary ?>" class="form-control">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col">
                         <h3>Kode Jenis</h3>
                             <form>
                                 <div class="form-group">
