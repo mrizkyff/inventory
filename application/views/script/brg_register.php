@@ -51,6 +51,7 @@
                                     '<td>'+data[i].tgl_register+'</td>'+
                                     '<td style "text-align:right;">'+
                                         '<a href="javascript:;" class="btn btn-info btn-xs item_edit" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].id+'" nama="'+data[i].nama+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'">Edit</a>'+'  '+
+                                        '<a href="javascript:;" class="btn btn-secondary btn-xs item_upgrade" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].id+'" nama="'+data[i].nama+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'" spec="'+data[i].spec+'" up="'+data[i].upgrade+'">Upgrade</a>'+'  '+
                                         '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].id+'" arr="'+data+'" nama="'+data[i].nama+'" rusak="'+data[i].kerusakan+'">Rusak</a>'+
                                     '</td>'+
                                 '</tr>';
@@ -151,7 +152,7 @@
             // aksi rusak
             $('#btn_konfirmasi').on('click',function(){
                 var kerusakan = $('#kerusakan').val();
-                kerusakan = rusak+ ";"+ " update: "+kerusakan;
+                // kerusakan = rusak+ ";"+ " update: "+kerusakan;
                 var username = $('#logUsernames').val();
                 var action = $('#actions').val();
                 $.ajax({
@@ -191,6 +192,40 @@
                     $('#modalEditRegister').modal('hide');
                     tampilDataBarang();
                 }
+            })
+        })
+
+
+        // get modal upgrade
+        $('#show_brg_register').on('click','.item_upgrade',function(){
+            var id = $(this).attr('data');
+            var nama = $(this).attr('nama');
+            var username = $('#logUsernames').val();
+            var action = $('#actionx').val();
+            var up = $(this).attr('up');
+            
+
+            $('#namex').val(nama);
+            $('#idx').val(id);
+            $('#modalUpgrade').modal('show');
+
+            // aksi perbaikan
+            $('#btn_upgrade').on('click',function(){
+            var upgrade = $('#upgrade').val();
+            // upgrade = up+"; "+"update: "+upgrade;
+                $.ajax({
+                    url: '<?php echo base_url('BrgRusak/upgrade') ?>',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: {id:id, nama:nama, username:username, action:action, upgrade:upgrade},
+                    success: function(data){
+                        $('#modalUpgrade').modal('hide');
+                        $('#upgrade').val("");
+                        alert('Barang berhasil di upgrade');
+                        tampilDataBarang();
+                    }
+                })
+                
             })
         })
 

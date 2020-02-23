@@ -16,7 +16,10 @@
             $status = 'Terdaftar';
             $action = $this->input->post('action');
             $username = $this->input->post('username');
+            $baikan = $this->m_brgRusak->getPerbaikan($id);
+                $baikan = $baikan[0]->perbaikan;
             $perbaikan = $this->input->post('perbaikan');
+                $perbaikan = $baikan.' ('.$tanggal.'->'.$perbaikan.' )'.'<br>';
 
             $dt = array(
                 'status' => $status,
@@ -48,10 +51,15 @@
             $status = 'Rusak';
             $action = $this->input->post('action');
             $username = $this->input->post('username');
+            $up = $this->m_brgRusak->getUpgrade($id);
+                $up = $up[0]->upgrade;
             $upgrade = $this->input->post('upgrade');
+                $upgrade = $up.' ('.$tanggal.'->'.$upgrade.' )'.'<br>';
+            
+            
 
             $dt = array(
-                'status' => $status,
+                // 'status' => $status,
                 'upgrade' => $upgrade,
                 'tgl_register' => $tanggal
             );

@@ -238,7 +238,10 @@ class BrgRegister extends CI_Controller
     function barangRusak(){
         $tanggal = date("Y-m-d H:i:s");
         $id = $this->input->post('id');
+        $rusak = $this->m_brgRegister->getKerusakan($id);
+            $rusak = $rusak[0]->kerusakan;
         $kerusakan = $this->input->post('kerusakan');
+            $kerusakan = $rusak.' ('.$tanggal.'->'.$kerusakan.' )'.'<br>';
         $nama = $this->input->post('nama');
         $action = $this->input->post('action');
         $username = $this->input->post('username');

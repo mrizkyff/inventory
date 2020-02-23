@@ -1,7 +1,9 @@
 <script>
     $(document).ready(function(){
         tampilDataBarang();
-        $('#tableBarangRusak').DataTable();
+        $('#tableBarangRusak').DataTable({
+            "order": [[9,"desc"]]
+        });
 
         function tampilDataBarang(){
             $.ajax({
@@ -127,7 +129,7 @@
             // aksi perbaikan
             $('#btn_perbaikan').on('click',function(){
             var perbaikan = $('#perbaikan').val();
-            perbaikan = repair+"; "+"update: "+perbaikan;
+            // perbaikan = repair+"; "+"update: "+perbaikan;
                 $.ajax({
                     url: '<?php echo base_url('BrgRusak/perbaikan') ?>',
                     method: 'POST',
@@ -142,36 +144,38 @@
             })
         })
 
-        // get modal upgrade
-        $('#show_brg_rusak').on('click','.item_upgrade',function(){
-            var id = $(this).attr('data');
-            var nama = $(this).attr('nama');
-            var username = $('#logUsernames').val();
-            var action = $('#actionx').val();
-            var up = $(this).attr('up');
+        // // get modal upgrade
+        // $('#show_brg_rusak').on('click','.item_upgrade',function(){
+        //     var id = $(this).attr('data');
+        //     var nama = $(this).attr('nama');
+        //     var username = $('#logUsernames').val();
+        //     var action = $('#actionx').val();
+        //     var up = $(this).attr('up');
             
 
-            $('#namex').val(nama);
-            $('#idx').val(id);
-            $('#modalUpgrade').modal('show');
+        //     $('#namex').val(nama);
+        //     $('#idx').val(id);
+        //     $('#modalUpgrade').modal('show');
 
-            // aksi perbaikan
-            $('#btn_upgrade').on('click',function(){
-            var upgrade = $('#upgrade').val();
-            upgrade = up+"; "+"update: "+upgrade;
-                $.ajax({
-                    url: '<?php echo base_url('BrgRusak/upgrade') ?>',
-                    method: 'POST',
-                    dataType: 'JSON',
-                    data: {id:id, nama:nama, username:username, action:action, upgrade:upgrade},
-                    success: function(data){
-                        $('#modalUpgrade').modal('hide');
-                        alert('Status barang berhasil di update');
-                        tampilDataBarang();
-                    }
-                })
+        //     // aksi perbaikan
+        //     $('#btn_upgrade').on('click',function(){
+        //     // var upgrade = $('#upgrade').val();
+        //     upgrade = up+"; "+"update: "+upgrade;
+        //         $.ajax({
+        //             url: '<?php echo base_url('BrgRusak/upgrade') ?>',
+        //             method: 'POST',
+        //             dataType: 'JSON',
+        //             data: {id:id, nama:nama, username:username, action:action, upgrade:upgrade},
+        //             success: function(data){
+        //                 $('#modalUpgrade').modal('hide');
+        //                 alert('Status barang berhasil di update');
+        //                 tampilDataBarang();
+        //             }
+        //         })
                 
-            })
-        })
+        //     })
+        // })
+
+
     });
 </script>

@@ -18,6 +18,16 @@
             $this->db->where('id',$id);
             return $this->db->update('daftar_barang',$data);
         }
+        function getPerbaikan($id){
+            $this->db->where('id',$id);
+            $this->db->select('perbaikan');
+            return $this->db->get('daftar_barang')->result();
+        }
+        function getUpgrade($id){
+            $this->db->where('id',$id);
+            $this->db->select('upgrade');
+            return $this->db->get('daftar_barang')->result();
+        }
     }
     
 ?>

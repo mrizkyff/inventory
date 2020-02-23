@@ -18,6 +18,11 @@
             $this->db->where('id',$id);
             return $this->db->update('daftar_barang',$data);
         }
+        function getKerusakan($id){
+            $this->db->where('id',$id);
+            $this->db->select('kerusakan');
+            return $this->db->get('daftar_barang')->result();
+        }
         
     }
     

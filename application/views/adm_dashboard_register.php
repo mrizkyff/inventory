@@ -257,3 +257,37 @@
         </div>
         </div>
         <!-- akhir modal rusak -->
+
+        <!-- modal upgrade -->
+        <div class="modal" tabindex="-1" role="dialog" id="modalUpgrade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Konfirmasi Upgrade</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <center>
+                <p id="textPerbaikan"></p>
+            </center>
+                    <input type="hidden" id="logUsernames" name="logUsernames" value="<?php echo $username ?>">
+                    <input type="hidden" id="actionx" name="actionx" value="menandai barang telah diupgrade pada item">
+                    <input type="hidden" name="namex" id="namex" value=""> 
+                    <input type="hidden" name="idx" id="idx" value=""> 
+
+
+                <div class="form-group">
+                    <label for="upgrade">Upgrade</label>
+                    <textarea  class="form-control" name="upgrade" id="upgrade" cols="30" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn_upgrade">Konfirmasi</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- akhir modal upgrade -->
