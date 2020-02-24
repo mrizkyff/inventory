@@ -68,6 +68,49 @@
             $data = $this->m_setting->updateSubbag($dt);
             echo json_encode($data);
         }
+        function simpanLayout(){
+            // barcode
+            $id = 1;
+            $judulBc = $this->input->post('judulBc');
+            $ket1Bc = $this->input->post('ket1Bc');
+            $ket2Bc = $this->input->post('ket2Bc');
+            $ket3Bc = $this->input->post('ket3Bc');
+            $ket4Bc = $this->input->post('ket4Bc');
+            $dataBarcode = array(
+                'judul' => $judulBc,
+                'ket1' => $ket1Bc,
+                'ket2' => $ket2Bc,
+                'ket3' => $ket3Bc,
+                'ket4' => $ket4Bc
+            );
+            $data = $this->m_setting->saveLayout($id,$dataBarcode,'setting_barcode');
+
+            // qr
+            $judulQr = $this->input->post('judulQr');
+            $ket1Qr = $this->input->post('ket1Qr');
+            $ket2Qr = $this->input->post('ket2Qr');
+            $ket3Qr = $this->input->post('ket3Qr');
+            $ket4Qr = $this->input->post('ket4Qr');
+            $dataQr = array(
+                'judul' => $judulQr,
+                'ket1' => $ket1Qr,
+                'ket2' => $ket2Qr,
+                'ket3' => $ket3Qr,
+                'ket4' => $ket4Qr
+            );
+            $data = $this->m_setting->saveLayout($id,$dataQr,'setting_qr');
+            echo json_encode($data);
+       
+        }
+
+        function getLayoutSettingBc(){
+            $dataBc = $this->m_setting->getLayoutBarcode();
+            echo json_encode($dataBc);
+        }
+        function getLayoutSettingQr(){
+            $dataBc = $this->m_setting->getLayoutQr();
+            echo json_encode($dataBc);
+        }
     }
     
 ?>
