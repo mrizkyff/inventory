@@ -16,6 +16,7 @@
         </div><!-- /.row -->
         <br>
 
+        <!-- menu setting kode -->
         <div class="card">
             <div class="card-header bg-secondary">
                 <h5 class='text-left text-light'>Pengaturan Kode Inventaris</h1>
@@ -194,7 +195,185 @@
 
                     </div>
                 </div>
-                <button class="btn btn-primary" id="btn_simpan" style="float:right;">Simpan</button>
+                <button class="btn btn-primary" id="_layout" style="float:right;">Simpan</button>
+            </div>
+        </div>
+        </div>
+        <!-- akhir menu setting kode -->
+
+
+        <!-- menu setting layout barcode -->
+        <div class="card">
+            <div class="card-header bg-info">
+                <h5 class='text-left text-light'>Pengaturan Layout Barcode</h1>
+            </div>
+            <div class="card-body">
+                <div class="" id="reload">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <!-- barcode -->
+                            <table style="width:550px; height:120px" border="1">
+                                <tr>
+                                    <td colspan="2">
+                                    <center>
+                                        <div class="form-group" style="width:70%;">
+                                        <label for="set_judulBc">Judul Label</label>
+                                        <input type="text" name="set_judulBc" id="set_judulBc" class="form-control" placeholder="Judul Barcode">
+                                        </div>
+                                    </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                            <select name="set_field1Bc" id="set_field1Bc" class="form-control" style="width:80%;">
+                                                <option value="">Keterangan 1</option>
+                                                <option value="jenis">Jenis Barang</option>
+                                                <option value="kodeRegister">Kode Register</option>
+                                                <option value="nama">Nama Barang</option>
+                                                <option value="merek">Merek</option>
+                                                <option value="harga">Harga</option>
+                                                <option value="keterangan">Keterangan Barang</option>
+                                                <option value="spec">Spesifikasi</option>
+                                                <option value="tgl_register">Tanggal</option>
+                                            </select>
+                                    </td>
+                                    <!-- <td> <p id="namabrg"></p> </td> -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                            <select name="set_field2Bc" id="set_field2Bc" class="form-control" style="width:80%;">
+                                                <option value="">Keterangan 2</option>
+                                                <option value="jenis">Jenis Barang</option>
+                                                <option value="kodeRegister">Kode Register</option>
+                                                <option value="nama">Nama Barang</option>
+                                                <option value="merek">Merek</option>
+                                                <option value="harga">Harga</option>
+                                                <option value="keterangan">Keterangan Barang</option>
+                                                <option value="spec">Spesifikasi</option>
+                                                <option value="tgl_register">Tanggal</option>
+                                            </select>
+                                    </td>
+                                    <td>
+                                            <select name="set_field3Bc" id="set_field3Bc" class="form-control" style="width:80%;">
+                                                <option value="">Keterangan 3</option>
+                                                <option value="jenis">Jenis Barang</option>
+                                                <option value="kodeRegister">Kode Register</option>
+                                                <option value="nama">Nama Barang</option>
+                                                <option value="merek">Merek</option>
+                                                <option value="harga">Harga</option>
+                                                <option value="keterangan">Keterangan Barang</option>
+                                                <option value="spec">Spesifikasi</option>
+                                                <option value="tgl_register">Tanggal</option>
+                                            </select>
+                                    </td>
+                                    <!-- <td> <p id="namabrg"></p> </td> -->
+                                </tr>
+                                <tr>
+                                    <td> <p class="text-center"><img id="fotoBarcode" src="<?php echo base_url() ?>/upload/barcode/default.png" alt=""></p> </td>
+                                    <td>
+                                            <select name="set_field4Bc" id="set_field4Bc" class="form-control" style="width:80%;">
+                                                <option value="">Keterangan 4</option>
+                                                <option value="jenis">Jenis Barang</option>
+                                                <option value="kodeRegister">Kode Register</option>
+                                                <option value="nama">Nama Barang</option>
+                                                <option value="merek">Merek</option>
+                                                <option value="harga">Harga</option>
+                                                <option value="keterangan">Keterangan Barang</option>
+                                                <option value="spec">Spesifikasi</option>
+                                                <option value="tgl_register">Tanggal</option>
+                                            </select>
+                                    </td>
+                                    <!-- <td> <p id="namabrg"></p> </td> -->
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="col">
+                            <!-- qr -->
+                            <table style="width:550px; height:120px" border="1">
+                                <tr>
+                                    <td colspan="3"> 
+                                    <center>
+                                        <div class="form-group" style="width:70%;">
+                                        <label for="set_judulQr">Judul Label</label>
+                                        <input type="text" name="set_judulQr" id="set_judulQr" class="form-control" placeholder="Judul QR Code">
+                                        </div>
+                                    </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3" width="150px"><img id="fotoQr" src="<?php echo base_url() ?>/upload/qr/default.png" alt="" style="width:150px; height:150px;"> </td>
+                                    <td colspan="2"> <h5 class="text-left"><b>
+
+                                            <select name="set_field1Qr" id="set_field1Qr" class="form-control" style="width:80%;">
+                                                <option value="">Keterangan 1</option>
+                                                <option value="jenis">Jenis Barang</option>
+                                                <option value="kodeRegister">Kode Register</option>
+                                                <option value="nama">Nama Barang</option>
+                                                <option value="merek">Merek</option>
+                                                <option value="harga">Harga</option>
+                                                <option value="keterangan">Keterangan Barang</option>
+                                                <option value="spec">Spesifikasi</option>
+                                                <option value="tgl_register">Tanggal</option>
+                                            </select>
+
+                                    </b></h5> </td>
+                                    <!-- <td> <p id="namabrg"></p> </td> -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                            <select name="set_field2Qr" id="set_field2Qr" class="form-control">
+                                                <option value="">Keterangan 2</option>
+                                                <option value="jenis">Jenis Barang</option>
+                                                <option value="kodeRegister">Kode Register</option>
+                                                <option value="nama">Nama Barang</option>
+                                                <option value="merek">Merek</option>
+                                                <option value="harga">Harga</option>
+                                                <option value="keterangan">Keterangan Barang</option>
+                                                <option value="spec">Spesifikasi</option>
+                                                <option value="tgl_register">Tanggal</option>
+                                            </select>
+                                    </td>
+                                    <td>
+                                             <select name="set_field3Qr" id="set_field3Qr" class="form-control">
+                                                <option value="">Keterangan 3</option>
+                                                <option value="jenis">Jenis Barang</option>
+                                                <option value="kodeRegister">Kode Register</option>
+                                                <option value="nama">Nama Barang</option>
+                                                <option value="merek">Merek</option>
+                                                <option value="harga">Harga</option>
+                                                <option value="keterangan">Keterangan Barang</option>
+                                                <option value="spec">Spesifikasi</option>
+                                                <option value="tgl_register">Tanggal</option>
+                                            </select>
+                                    </td>
+                                    <!-- <td> <p id="namabrg"></p> </td> -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                            <select name="set_field4Qr" id="set_field4Qr" class="form-control">
+                                                <option value="">Keterangan 4</option>
+                                                <option value="jenis">Jenis Barang</option>
+                                                <option value="kodeRegister">Kode Register</option>
+                                                <option value="nama">Nama Barang</option>
+                                                <option value="merek">Merek</option>
+                                                <option value="harga">Harga</option>
+                                                <option value="keterangan">Keterangan Barang</option>
+                                                <option value="spec">Spesifikasi</option>
+                                                <option value="tgl_register">Tanggal</option>
+                                            </select>
+                                    
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <!-- <td> <p id="namabrg"></p> </td> -->
+                                </tr>
+                            </table>
+                        </div>                     
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="btn_simpan_layout" style="float:right;">Simpan</button>
             </div>
         </div>
         </div>
