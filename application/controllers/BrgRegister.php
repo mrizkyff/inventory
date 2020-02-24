@@ -266,9 +266,13 @@ class BrgRegister extends CI_Controller
         );
         $data = $this->m_brgRegister->saveLog($dt);
         echo json_encode($data);
-
     }
 
+    function getInfoQr(){
+        $id = $this->input->post('id');
+        $data = $this->m_brgRegister->getBarangById($id);
+        echo json_encode($data);
+    }
     
     
 }
