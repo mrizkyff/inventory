@@ -1,5 +1,37 @@
 <script>
     $(document).ready(function(){
+
+        //set nilai layout barcode
+        $.ajax({
+            type: 'GET',
+            url: '<?php echo base_url('Setting/getLayoutSettingBc')?>',
+            async: false,
+            dataType: 'JSON',
+            success: function(data){
+                $('#set_judulBc').val(data[0].judul);
+                $('#set_field1Bc').val(data[0].ket1);
+                $('#set_field2Bc').val(data[0].ket2);
+                $('#set_field3Bc').val(data[0].ket3);
+                $('#set_field4Bc').val(data[0].ket4);
+            }
+        })
+
+        // set nilai layout qr
+        $.ajax({
+            type: 'GET',
+            url: '<?php echo base_url('Setting/getLayoutSettingQr')?>',
+            async: false,
+            dataType: 'JSON',
+            success: function(data){
+                $('#set_judulQr').val(data[0].judul);
+                $('#set_field1Qr').val(data[0].ket1);
+                $('#set_field2Qr').val(data[0].ket2);
+                $('#set_field3Qr').val(data[0].ket3);
+                $('#set_field4Qr').val(data[0].ket4);
+            }
+        })
+
+
         $('#btn_simpan').on('click',function(){
             // update kode primary
             var primary = $('#primary').val();
@@ -83,5 +115,34 @@
             })
 
         })
+
+
+        // simpan layout 
+        $('#btn_simpan_layout').on('click',function(){
+            // barcode
+            var judulBc = $('#set_judulBc').val();
+            var ket1Bc = $('#set_field1Bc').val();
+            var ket2Bc = $('#set_field2Bc').val();
+            var ket3Bc = $('#set_field3Bc').val();
+            var ket4Bc = $('#set_field4Bc').val();
+        
+            // qr
+            var judulQr = $('#set_judulQr').val();
+            var ket1Qr = $('#set_field1Qr').val();
+            var ket2Qr = $('#set_field2Qr').val();
+            var ket3Qr = $('#set_field3Qr').val();
+            var ket4Qr = $('#set_field4Qr').val();
+            $.ajax({
+                url: '<?php echo base_url('Setting/simpanLayout') ?>',
+                method: 'POST',
+                data: {judulQr:judulQr, ket1Qr:ket1Qr, ket2Qr:ket2Qr, ket3Qr:ket3Qr, ket4Qr:ket4Qr, judulBc:judulBc, ket1Bc:ket1Bc, ket2Bc:ket2Bc, ket3Bc:ket3Bc, ket4Bc:ket4Bc},
+                dataType: 'JSON',
+                success: function(data){
+                    alert('Layout QR dan Barcode berhasil di update');
+                }
+            })
+
+        })
+
     });
 </script>
