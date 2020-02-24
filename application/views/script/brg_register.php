@@ -64,29 +64,40 @@
         // get modal qr
         $('#show_brg_register').on('click','.item_qr',function(){
             var id = $(this).attr('id');
-            var nama = $(this).attr('nama');
-            var kdReg = $(this).attr('kdReg');
-            var jenis = $(this).attr('jenis');
-            var tgl = $(this).attr('tgl');
+            var nama = '';
+            var kdReg = '';
+            var jenis = '';
+            var tgl = '';
+            $.ajax({
+                url: '<?php echo base_url('BrgRegister/getInfoQr') ?>',
+                method: 'POST',
+                data: {id:id},
+                dataType: "JSON",
+                success: function(data){
+                    nama = data[0].nama;
+                    kdReg = data[0].kodeRegister;
+                    jenis = data[0].jenis;
+                    tgl = data[0].tgl_register;
 
-            
+                    $('#namabrg').text(nama);
+                    $('#jenisbrg').text(jenis);
+                    $('#kdReg').text(kdReg);
+                    $('#tglbrg').text(tgl);
+                    var alamat = "<?php echo base_url() ?>upload/qr/"+kdReg+".png";
+                    $('#fotoQr').attr("src",alamat);
+                    
+                    $('#modalQr').modal('show');
 
-            $('#namabrg').text(nama);
-            $('#jenisbrg').text(jenis);
-            $('#kdReg').text(kdReg);
-            $('#tglbrg').text(tgl);
-            var alamat = "<?php echo base_url() ?>upload/qr/"+kdReg+".png";
-            $('#fotoQr').attr("src",alamat);
+                }
+            })
 
+            // console.log(id);
+            // console.log(nama);
+            // console.log(kdReg);
+            // console.log(jenis);
+            // console.log(tgl);
+            // console.log(alamat);
 
-            console.log(id);
-            console.log(nama);
-            console.log(kdReg);
-            console.log(jenis);
-            console.log(tgl);
-            console.log(alamat);
-
-            $('#modalQr').modal('show');
         })
 
         // get modal barcode
