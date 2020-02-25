@@ -27,7 +27,15 @@
             $this->db->where('id',$id);
             return $this->db->get('daftar_barang')->result();
         }
-        
+        function getFieldQr(){
+            $this->db->where('id','1');
+            return $this->db->get('setting_qr')->result();
+        }
+        function getFieldBarcode(){
+            $this->db->where('id','1');
+            return $this->db->get('setting_barcode')->result();
+        }
+
     }
     
 ?>
