@@ -78,20 +78,20 @@
             <center>
                 <table style="width:550px; height:120px" border="1">
                     <tr>
-                        <td colspan="3"> <p><b><h4 class="text-center">KODE INVENTARIS</h4></b></p> </td>
+                        <td colspan="3"> <h4 id="judulQr" class="text-center"></h4> </td>
                     </tr>
                     <tr>
                         <td rowspan="3" width="150px"><img id="fotoQr" src="<?php echo base_url() ?>/upload/qr/default.png" alt="" style="width:150px; height:150px;"> </td>
-                        <td colspan="2"> <h5 class="text-left"><b><p id="namabrg"></p></b></h5> </td>
+                        <td colspan="2"> <h5 class="text-left"><b><p id="ket1"></p></b></h5> </td>
                         <!-- <td> <p id="namabrg"></p> </td> -->
                     </tr>
                     <tr>
-                        <td> <h5 class="text-left"><b><p id="jenisbrg"></p></b></h5> </td>
-                        <td> <h5 class="text-left"><b><p id="kdReg"></p></b></h5> </td>
+                        <td> <h5 class="text-left"><b><p id="ket2"></p></b></h5> </td>
+                        <td> <h5 class="text-left"><b><p id="ket3"></p></b></h5> </td>
                         <!-- <td> <p id="namabrg"></p> </td> -->
                     </tr>
                     <tr>
-                        <td> <h5 class="text-left"><b><p id="tglbrg"></p></b></h5> </td>
+                        <td> <h5 class="text-left"><b><p id="ket4"></p></b></h5> </td>
                         <td> <p id=""></p> </td>
                         <!-- <td> <p id="namabrg"></p> </td> -->
                     </tr>
@@ -122,20 +122,20 @@
             <center>
                 <table style="width:550px; height:120px" border="1">
                     <tr>
-                        <td colspan="2"> <p><b><h4 class="text-center">KODE INVENTARIS</h4></b></p> </td>
+                        <td colspan="2"> <h4 id="judulBc" class="text-center"></h4> </td>
                     </tr>
                     <tr>
-                        <td colspan="2"> <h5 class="text-left"><b><p id="nmbrg"></p></b></h5> </td>
+                        <td colspan="2"> <h5 class="text-left"><b><p id="ket1Bc"></p></b></h5> </td>
                         <!-- <td> <p id="namabrg"></p> </td> -->
                     </tr>
                     <tr>
-                        <td> <h5 class="text-left"><b><p id="jnsbrg"></p></b></h5> </td>
-                        <td> <h5 class="text-left"><b><p id="kdreg"></p></b></h5> </td>
+                        <td> <h5 class="text-left"><b><p id="ket2Bc"></p></b></h5> </td>
+                        <td> <h5 class="text-left"><b><p id="ket3Bc"></p></b></h5> </td>
                         <!-- <td> <p id="namabrg"></p> </td> -->
                     </tr>
                     <tr>
                         <td> <p class="text-center"><img id="fotoBarcode" src="<?php echo base_url() ?>/upload/barcode/default.png" alt=""></p> </td>
-                        <td> <h5 class="text-left"><b><p id="tgl"></p></b></h5> </td>
+                        <td> <h5 class="text-left"><b><p id="ket4Bc"></p></b></h5> </td>
                         <!-- <td> <p id="namabrg"></p> </td> -->
                     </tr>
                 </table>

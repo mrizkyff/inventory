@@ -204,7 +204,7 @@
                     </tr>
                     <tr>
                         <td> <h5 class="text-left"><b><p id="ket2Bc"></p></b></h5> </td>
-                        <td> <h5 class="text-left"><b><p id="ket3"></p></b></h5> </td>
+                        <td> <h5 class="text-left"><b><p id="ket3Bc"></p></b></h5> </td>
                         <!-- <td> <p id="namabrg"></p> </td> -->
                     </tr>
                     <tr>

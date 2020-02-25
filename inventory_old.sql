@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2020 at 02:36 AM
+-- Generation Time: Feb 20, 2020 at 04:51 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -19,6 +19,131 @@ SET time_zone = "+00:00";
 --
 -- Database: `inventory`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brg_baru`
+--
+
+CREATE TABLE IF NOT EXISTS `brg_baru` (
+`id` int(11) NOT NULL,
+  `kodeBarang` int(11) DEFAULT NULL,
+  `jenis` varchar(50) DEFAULT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `merek` varchar(50) DEFAULT NULL,
+  `seri` varchar(250) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `keterangan` text,
+  `spec` text,
+  `foto` varchar(250) DEFAULT NULL,
+  `tanggal` varchar(20) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `brg_baru`
+--
+
+INSERT INTO `brg_baru` (`id`, `kodeBarang`, `jenis`, `nama`, `merek`, `seri`, `jumlah`, `keterangan`, `spec`, `foto`, `tanggal`, `status`) VALUES
+(21, 22, 'Laptop', 'Asus S14-430FN', 'Asus', '123BNSJJKS', 2, 'inventaris PTI', 'processor intel, graphics nv, full hd', 'laptop1.jpeg', '2020-02-14 09:46:59', NULL),
+(22, 1, 'Komputer', 'Komputer Gaming', 'Asus PC ROG', 'GL553VSK', NULL, 'komputer untuk desain 3d', 'intel core i9', NULL, '2020-02-19 18:40:22', 'Baru');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brg_perencanaan`
+--
+
+CREATE TABLE IF NOT EXISTS `brg_perencanaan` (
+`id` int(11) NOT NULL,
+  `jenis` varchar(100) DEFAULT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `merek` varchar(50) DEFAULT NULL,
+  `seri` varchar(250) DEFAULT NULL,
+  `harga` varchar(250) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `keterangan` text,
+  `spec` text,
+  `tanggal` varchar(250) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `brg_perencanaan`
+--
+
+INSERT INTO `brg_perencanaan` (`id`, `jenis`, `nama`, `merek`, `seri`, `harga`, `jumlah`, `keterangan`, `spec`, `tanggal`, `status`) VALUES
+(9, 'Non Elektronik', 'Meja Belajar', 'Maspion', 'BVN123123HJGN', '1000000', NULL, 'Meja untuk karyawan', 'Kayu Jati', '2020-02-07 17:09:51', NULL),
+(12, 'Printer', 'printer', 'Epson', '12889L123', '1500000', 1, 'Printer inkjet', 'inkjet 6 warna', '2020-02-18 23:05:17', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brg_register`
+--
+
+CREATE TABLE IF NOT EXISTS `brg_register` (
+`id` int(11) NOT NULL,
+  `kodeBarang` int(11) DEFAULT NULL,
+  `jenis` varchar(20) DEFAULT NULL,
+  `namaBarang` varchar(50) DEFAULT NULL,
+  `merek` varchar(20) DEFAULT NULL,
+  `seri` varchar(50) DEFAULT NULL,
+  `keterangan` text,
+  `spec` text,
+  `bagian` varchar(20) DEFAULT NULL,
+  `subBagian` varchar(20) DEFAULT NULL,
+  `kodeRegister` varchar(20) DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `tanggal` varchar(20) DEFAULT NULL,
+  `qrCode` varchar(255) DEFAULT NULL,
+  `barCode` varchar(255) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `brg_register`
+--
+
+INSERT INTO `brg_register` (`id`, `kodeBarang`, `jenis`, `namaBarang`, `merek`, `seri`, `keterangan`, `spec`, `bagian`, `subBagian`, `kodeRegister`, `foto`, `tanggal`, `qrCode`, `barCode`, `status`) VALUES
+(34, 10, 'Komputer', 'iMac 23', 'Apple', 'BSNSH1627', 'komputer desain', 'macintosh mojave', 'Selatan', 'Teknik', '03.31.07.K10', '07LLQWrr7cxOWl7ebgWvNe7-177.jpg', '2020-02-18 09:10:35', '03.31.07.K10.png', '03.31.07.K10.png', NULL),
+(35, 11, 'Laptop', 'MacBook Pro ', 'Apple', 'SHN1285099', 'laptop kerja', 'mac os terbaru', 'Timur', 'Teknik', '03.33.07.L11', '27671774871.png', '2020-02-18 11:08:41', '03.33.07.L11.png', '03.33.07.L11.png', NULL),
+(36, 13, 'UPS', 'Ups stavol', 'ICAs', 'ICA64005', 'uninterrupted power supply', '650VA', 'Tengah', 'Admin & Umum', '03.35.05.U13', '2230818_d2be3369-9bd6-4676-a92c-6661e51b13332.jpg', '2020-02-18 23:13:33', '03.35.05.U13.png', '03.35.05.U13.png', NULL),
+(37, 13, 'Komputer', 'PC Built UP', 'Dell Optiplex', 'DESL1H18201', 'komputer untuk kerja kantor keuangan', 'intel core i3', 'Barat', 'Admin & Umum', '03.32.05.K13', 'komputer_built_up1.jpg', '2020-02-19 08:38:00', '03.32.05.K13.png', '03.32.05.K13.png', 'Terdaftar');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brg_rusak`
+--
+
+CREATE TABLE IF NOT EXISTS `brg_rusak` (
+`id` int(11) NOT NULL,
+  `kodeBarang` int(11) DEFAULT NULL,
+  `jenis` varchar(50) DEFAULT NULL,
+  `namaBarang` varchar(255) DEFAULT NULL,
+  `merek` varchar(255) DEFAULT NULL,
+  `seri` varchar(255) DEFAULT NULL,
+  `keterangan` text,
+  `spec` text,
+  `bagian` varchar(50) DEFAULT NULL,
+  `subBagian` varchar(50) DEFAULT NULL,
+  `kodeRegister` varchar(50) DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `tanggal` varchar(20) DEFAULT NULL,
+  `qrCode` varchar(255) DEFAULT NULL,
+  `barCode` varchar(255) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `kerusakan` text
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `brg_rusak`
+--
+
+INSERT INTO `brg_rusak` (`id`, `kodeBarang`, `jenis`, `namaBarang`, `merek`, `seri`, `keterangan`, `spec`, `bagian`, `subBagian`, `kodeRegister`, `foto`, `tanggal`, `qrCode`, `barCode`, `status`, `kerusakan`) VALUES
+(1, 1, 'UPS', 'Ups Ground', 'ICA ICA6500', 'SBSN172910', 'ups untuk pti\r\n', NULL, 'Selatan', 'PTI-Bengkel', '03.32.21.U14', NULL, '22/02/2020', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -50,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `daftar_barang` (
   `perbaikan` text NOT NULL,
   `kerusakan` text NOT NULL,
   `upgrade` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `daftar_barang`
@@ -62,11 +187,7 @@ INSERT INTO `daftar_barang` (`id`, `jenis`, `nama`, `merek`, `seri`, `harga`, `j
 (4, 'Lain-Lain', 'Meja Belajar Bulat', 'Olympics', '123123', 2500000, 0, 'Meja kerja kantor', 'kayu jati', '2020-02-19 18:56:00', '', '', '', '', '', '', '', '', '', 'Perencanaan', '', '', ''),
 (6, 'Komputer', 'iMac 23', 'Apple', '123BSN1KH', 45000000, 0, 'untuk menunjang pekerjaan admin', 'macintosh mjv', '2020-02-19 19:11:28', '2020-02-19 20:01:56', '2020-02-19 20:02:21', '2020-02-20 08:09:28', '07LLQWrr7cxOWl7ebgWvNe7-178.jpg', 0x54696d7572, 'Kamtib', 0x30332e33332e32302e4b36, '03.33.20.K6.png', '03.33.20.K6.png', 'Rusak', '', '; update: mati total', ''),
 (10, 'Lain-Lain', 'dinding kaca', 'katja', '12389BNS', 450000, 0, 'kaca pembatas ruangan', 'tebal 30mm', '2020-02-19 19:16:51', '', '', '', '', '', '', '', '', '', 'Perencanaan', '', '', ''),
-(11, 'Lain-Lain', 'Keyboard mehcanical', 'Corsair', 'BLSC1899', 1200000, 0, 'untuk pengetikan notulen', 'mechanical blue switch', '2020-02-19 19:17:51', '2020-02-20 08:08:15', '2020-02-23 23:00:51', '2020-02-23 22:47:18', 'keyboard1.jpg', 0x53656c6174616e, 'Perencanaan', 0x30332e33312e30392e4c4c3131, '03.31.09.LL11.png', '03.31.09.LL11.png', 'Terdaftar', '; update:  (2020-02-23 22:47:40->ganti kabel )<br>', ' (2020-02-23 22:41:44->switch tidak bisa )<br> (2020-02-23 22:47:18->kabel putus )<br>', ' (2020-02-23 22:59:36->upgrade switch )<br> (2020-02-23 23:00:51->ganti plate usb )<br>'),
-(12, 'Komputer', 'Komputer Buildup Dell', 'Dell', '123123123', 7500000, 0, 'Komputer buildup untuk kospin', 'intel celeron gold', '2020-02-20 11:16:33', '2020-02-20 11:16:39', '2020-02-20 11:46:42', '2020-02-23 22:34:14', 'komputer_built_up2.jpg', 0x54696d7572, 'Direktur Utama', 0x33302e39322e31312e4b4d3132, '30.92.11.KM12.png', '30.92.11.KM12.png', 'Rusak', '; update: ', '; update:  (2020-02-23 22:34:14->tidak ada suara ) <br>', ''),
-(13, 'Lain-Lain', 'Jangkrik Elektronik', 'AnyZoo', 'JSK199KRK', 120000, 0, 'jangkrik mainan untuk anak dan orang tua', 'baterai 2x aaa', '2020-02-21 09:10:04', '2020-02-21 09:10:50', '2020-02-23 22:37:37', '2020-02-23 22:37:14', 'jangkrik-5d690a46097f360b4d571444.jpg', 0x4261726174, 'Keuangan', 0x33302e37332e3533302e4c41583133, '30.73.530.LAX13.png', '30.73.530.LAX13.png', 'Terdaftar', '; update: ; update: ', ' (2020-02-23 22:34:14->tidak ada suara ) <br> (2020-02-23 22:37:14->mati )', ''),
-(14, 'Laptop', 'Laptop Asus s15', 'Asus', '172820BNSJ', 25000000, 0, 'laptop kerja', 'intel core i7', '2020-02-21 10:17:09', '', '', '', '', '', '', '', '', '', 'Perencanaan', '', '', ''),
-(15, 'Laptop', 'Laptop Asus Zenbook', 'Asus', 'ZNB18919', 18500000, 0, 'laptop ultrabook untuk karyawan', 'intel core i9', '2020-02-21 10:18:53', '2020-02-21 10:19:10', '2020-02-21 10:21:59', '2020-02-21 10:21:40', 'laptop2.jpeg', 0x4261726174, 'Admin & Umum', 0x34352e37332e3531362e4c50583135, '45.73.516.LPX15.png', '45.73.516.LPX15.png', 'Terdaftar', '; update: ; update: pembersihan', '; update: mati; update: hang', '; update: tambah ram');
+(11, 'Lain-Lain', 'Keyboard mehcanical', 'Corsair', 'BLSC1899', 1200000, 0, 'untuk pengetikan notulen', 'mechanical blue switch', '2020-02-19 19:17:51', '2020-02-20 08:08:15', '2020-02-20 08:08:41', '', 'keyboard1.jpg', 0x53656c6174616e, 'Perencanaan', 0x30332e33312e30392e4c4c3131, '03.31.09.LL11.png', '03.31.09.LL11.png', 'Terdaftar', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -85,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `log_sistem` (
   `kerusakan` text,
   `perbaikan` text,
   `upgrade` text
-) ENGINE=InnoDB AUTO_INCREMENT=212 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `log_sistem`
@@ -255,54 +376,7 @@ INSERT INTO `log_sistem` (`id`, `kode_brg`, `nama_brg`, `kode_user`, `edit_by`, 
 (161, 11, 'Keyboard mehcanical', NULL, 'user', 'mengkonfirmasi item pada perencanaan', '2020-02-20 08:08:15', NULL, NULL, NULL),
 (162, 11, 'Keyboard mehcanical', NULL, 'user', 'menambahkan foto pada item', '2020-02-20 08:08:31', NULL, NULL, NULL),
 (163, 11, 'Keyboard mehcanical', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 08:08:41', NULL, NULL, NULL),
-(164, 6, 'iMac 23', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-20 08:09:28', '; update: mati total', NULL, NULL),
-(165, 0, 'Komputer Buildup Dell', NULL, 'user', 'menambahkan item pada perencanaan', '2020-02-20 11:16:33', NULL, NULL, NULL),
-(166, 12, 'Komputer Buildup Dell', NULL, 'user', 'mengkonfirmasi item pada perencanaan', '2020-02-20 11:16:39', NULL, NULL, NULL),
-(167, 12, 'Komputer Buildup Dell', NULL, 'user', 'menambahkan foto pada item', '2020-02-20 11:16:52', NULL, NULL, NULL),
-(168, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:17:04', NULL, NULL, NULL),
-(169, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:17:07', NULL, NULL, NULL),
-(170, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:17:08', NULL, NULL, NULL),
-(171, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:20:10', NULL, NULL, NULL),
-(172, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:29:30', NULL, NULL, NULL),
-(173, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:36:16', NULL, NULL, NULL),
-(174, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:36:25', NULL, NULL, NULL),
-(175, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:36:30', NULL, NULL, NULL),
-(176, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:40:17', NULL, NULL, NULL),
-(177, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:42:08', NULL, NULL, NULL),
-(178, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan registrasi pada item', '2020-02-20 11:43:02', NULL, NULL, NULL),
-(179, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-20 11:45:13', NULL, NULL, NULL),
-(180, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-20 11:45:15', NULL, NULL, NULL),
-(181, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-20 11:46:19', NULL, NULL, NULL),
-(182, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-20 11:46:33', '; update: ', NULL, NULL),
-(183, 12, 'Komputer Buildup Dell', NULL, 'user', 'menandai barang telah diperbaiki pada item', '2020-02-20 11:46:42', NULL, '; update: ', NULL),
-(184, 0, 'Jangkrik Elektronik', NULL, 'user', 'menambahkan item pada perencanaan', '2020-02-21 09:10:04', NULL, NULL, NULL),
-(185, 13, 'Jangkrik Elektronik', NULL, 'user', 'mengkonfirmasi item pada perencanaan', '2020-02-21 09:10:50', NULL, NULL, NULL),
-(186, 13, 'Jangkrik Elektronik', NULL, 'user', 'menambahkan foto pada item', '2020-02-21 09:11:03', NULL, NULL, NULL),
-(187, 13, 'Jangkrik Elektronik', NULL, 'user', 'melakukan registrasi pada item', '2020-02-21 09:11:27', NULL, NULL, NULL),
-(188, 0, 'Laptop Asus s15', NULL, 'user', 'menambahkan item pada perencanaan', '2020-02-21 10:17:09', NULL, NULL, NULL),
-(189, 0, 'Laptop Asus Zenbook', NULL, 'user', 'menambahkan item pada perencanaan', '2020-02-21 10:18:53', NULL, NULL, NULL),
-(190, 15, 'Laptop Asus Zenbook', NULL, 'user', 'mengkonfirmasi item pada perencanaan', '2020-02-21 10:19:10', NULL, NULL, NULL),
-(191, 15, 'Laptop Asus Zenbook', NULL, 'user', 'menambahkan foto pada item', '2020-02-21 10:19:29', NULL, NULL, NULL),
-(192, 15, 'Laptop Asus Zenbook', NULL, 'user', 'melakukan registrasi pada item', '2020-02-21 10:19:48', NULL, NULL, NULL),
-(193, 15, 'Laptop Asus Zenbook', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-21 10:20:16', '; update: mati', NULL, NULL),
-(194, 15, 'Laptop Asus Zenbook', NULL, 'user', 'menandai barang telah diupgrade pada item', '2020-02-21 10:20:48', NULL, NULL, '; update: tambah ram'),
-(195, 15, 'Laptop Asus Zenbook', NULL, 'user', 'menandai barang telah diperbaiki pada item', '2020-02-21 10:20:54', NULL, '; update: ', NULL),
-(196, 15, 'Laptop Asus Zenbook', NULL, 'user', 'menandai barang telah diperbaiki pada item', '2020-02-21 10:20:54', NULL, '; update: ', NULL),
-(197, 15, 'Laptop Asus Zenbook', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-21 10:21:40', '; update: mati; update: hang', NULL, NULL),
-(198, 15, 'Laptop Asus Zenbook', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-21 10:21:40', '; update: mati; update: hang', NULL, NULL),
-(199, 15, 'Laptop Asus Zenbook', NULL, 'user', 'menandai barang telah diperbaiki pada item', '2020-02-21 10:21:59', NULL, '; update: ; update: pembersihan', NULL),
-(200, 12, 'Komputer Buildup Dell', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-23 22:34:14', '; update:  (2020-02-23 22:34:14->tidak ada suara )', NULL, NULL),
-(201, 13, 'Jangkrik Elektronik', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-23 22:34:14', ' (2020-02-23 22:34:14->tidak ada suara )', NULL, NULL),
-(202, 13, 'Jangkrik Elektronik', NULL, 'user', 'menandai barang telah diperbaiki pada item', '2020-02-23 22:36:52', NULL, '; update: ', NULL),
-(203, 13, 'Jangkrik Elektronik', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-23 22:37:14', ' (2020-02-23 22:34:14->tidak ada suara ) (2020-02-23 22:37:14->mati )', NULL, NULL),
-(204, 13, 'Jangkrik Elektronik', NULL, 'user', 'menandai barang telah diperbaiki pada item', '2020-02-23 22:37:37', NULL, '; update: ; update: ', NULL),
-(205, 11, 'Keyboard mehcanical', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-23 22:41:44', ' (2020-02-23 22:41:44->switch tidak bisa )<br>', NULL, NULL),
-(206, 11, 'Keyboard mehcanical', NULL, 'user', 'menandai barang telah diperbaiki pada item', '2020-02-23 22:42:04', NULL, '; update: ', NULL),
-(207, 11, 'Keyboard mehcanical', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-23 22:47:18', ' (2020-02-23 22:41:44->switch tidak bisa )<br> (2020-02-23 22:47:18->kabel putus )<br>', NULL, NULL),
-(208, 11, 'Keyboard mehcanical', NULL, 'user', 'menandai barang telah diperbaiki pada item', '2020-02-23 22:47:40', NULL, '; update:  (2020-02-23 22:47:40->ganti kabel )<br>', NULL),
-(209, 11, 'Keyboard mehcanical', NULL, 'user', 'menandai barang telah diupgrade pada item', '2020-02-23 22:56:50', NULL, NULL, ' (2020-02-23 22:56:50->; update: [object HTMLTextAreaElement] )<br>'),
-(210, 11, 'Keyboard mehcanical', NULL, 'user', 'menandai barang telah diupgrade pada item', '2020-02-23 22:59:36', NULL, NULL, ' (2020-02-23 22:59:36->upgrade switch )<br>'),
-(211, 11, 'Keyboard mehcanical', NULL, 'user', 'menandai barang telah diupgrade pada item', '2020-02-23 23:00:51', NULL, NULL, ' (2020-02-23 22:59:36->upgrade switch )<br> (2020-02-23 23:00:51->ganti plate usb )<br>');
+(164, 6, 'iMac 23', NULL, 'user', 'melakukan pemindahan pada item', '2020-02-20 08:09:28', '; update: mati total', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -328,159 +402,35 @@ INSERT INTO `privilege` (`id`, `nama`, `nip`, `username`, `password`, `level`, `
 (3, 'MUHAMAD RIZKY FAJAR FEBRIAN', 'A11.2017.10492', '', 'superadmin', 'Super Admin', '2020-02-10 12:02:33'),
 (6, 'Gendut', 'A11.2017.10499', '', 'gendut123', 'Admin', '2020-02-11 07:36:52'),
 (11, 'Adinda', 'A11.2017.10494', 'dinda', 'dinda123', 'Super Admin', '2020-02-11 07:47:27'),
-(15, 'user', 'user', 'user', 'user123', 'Admin', '2020-02-11 11:37:46');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `setting_bagian`
---
-
-CREATE TABLE IF NOT EXISTS `setting_bagian` (
-`id` int(11) NOT NULL,
-  `tengah` varchar(5) DEFAULT NULL,
-  `timur` varchar(5) DEFAULT NULL,
-  `barat` varchar(5) DEFAULT NULL,
-  `selatan` varchar(5) DEFAULT NULL,
-  `utara` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `setting_bagian`
---
-
-INSERT INTO `setting_bagian` (`id`, `tengah`, `timur`, `barat`, `selatan`, `utara`) VALUES
-(1, '71', '72', '73', '74', '75');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `setting_barcode`
---
-
-CREATE TABLE IF NOT EXISTS `setting_barcode` (
-`id` int(11) NOT NULL,
-  `judul` varchar(255) DEFAULT NULL,
-  `ket1` varchar(255) DEFAULT NULL,
-  `ket2` varchar(255) DEFAULT NULL,
-  `ket3` varchar(255) DEFAULT NULL,
-  `ket4` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `setting_barcode`
---
-
-INSERT INTO `setting_barcode` (`id`, `judul`, `ket1`, `ket2`, `ket3`, `ket4`) VALUES
-(1, 'Barcode Inventaris Barang PDAM', 'jenis', 'nama', 'kodeRegister', 'tgl_register');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `setting_jenis`
---
-
-CREATE TABLE IF NOT EXISTS `setting_jenis` (
-`id` int(11) NOT NULL,
-  `gps` varchar(5) DEFAULT NULL,
-  `komputer` varchar(5) DEFAULT NULL,
-  `laptop` varchar(5) DEFAULT NULL,
-  `monitor` varchar(5) DEFAULT NULL,
-  `printer` varchar(5) DEFAULT NULL,
-  `proyektor` varchar(5) DEFAULT NULL,
-  `scanner` varchar(5) DEFAULT NULL,
-  `ups` varchar(5) DEFAULT NULL,
-  `lain` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `setting_jenis`
---
-
-INSERT INTO `setting_jenis` (`id`, `gps`, `komputer`, `laptop`, `monitor`, `printer`, `proyektor`, `scanner`, `ups`, `lain`) VALUES
-(1, 'GPX', 'KMX', 'LPX', 'MNX', 'PTX', 'PRX', 'SCX', 'UPX', 'LAX');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `setting_primary`
---
-
-CREATE TABLE IF NOT EXISTS `setting_primary` (
-`id` int(11) NOT NULL,
-  `primary` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `setting_primary`
---
-
-INSERT INTO `setting_primary` (`id`, `primary`) VALUES
-(1, '45');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `setting_qr`
---
-
-CREATE TABLE IF NOT EXISTS `setting_qr` (
-`id` int(11) NOT NULL,
-  `judul` varchar(255) DEFAULT NULL,
-  `ket1` varchar(255) DEFAULT NULL,
-  `ket2` varchar(255) DEFAULT NULL,
-  `ket3` varchar(255) DEFAULT NULL,
-  `ket4` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `setting_qr`
---
-
-INSERT INTO `setting_qr` (`id`, `judul`, `ket1`, `ket2`, `ket3`, `ket4`) VALUES
-(1, 'Kode Inventaris Barang', 'jenis', 'nama', 'kodeRegister', 'tgl_register');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `setting_subbag`
---
-
-CREATE TABLE IF NOT EXISTS `setting_subbag` (
-`id` int(11) NOT NULL,
-  `dirut` varchar(5) DEFAULT NULL,
-  `dirum` varchar(5) DEFAULT NULL,
-  `dirtek` varchar(5) DEFAULT NULL,
-  `kacab` varchar(5) DEFAULT NULL,
-  `kabag` varchar(5) DEFAULT NULL,
-  `admin` varchar(5) DEFAULT NULL,
-  `pti` varchar(5) DEFAULT NULL,
-  `teknik` varchar(5) DEFAULT NULL,
-  `hublang` varchar(5) DEFAULT NULL,
-  `perencanaan` varchar(5) DEFAULT NULL,
-  `asset` varchar(5) DEFAULT NULL,
-  `penertiban` varchar(5) DEFAULT NULL,
-  `pptka` varchar(5) DEFAULT NULL,
-  `server` varchar(5) DEFAULT NULL,
-  `umum` varchar(5) DEFAULT NULL,
-  `qc` varchar(5) DEFAULT NULL,
-  `lab` varchar(5) DEFAULT NULL,
-  `poli` varchar(5) DEFAULT NULL,
-  `humas` varchar(5) DEFAULT NULL,
-  `keuangan` varchar(5) DEFAULT NULL,
-  `kamtib` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `setting_subbag`
---
-
-INSERT INTO `setting_subbag` (`id`, `dirut`, `dirum`, `dirtek`, `kacab`, `kabag`, `admin`, `pti`, `teknik`, `hublang`, `perencanaan`, `asset`, `penertiban`, `pptka`, `server`, `umum`, `qc`, `lab`, `poli`, `humas`, `keuangan`, `kamtib`) VALUES
-(1, '511', '512', '513', '514', '515', '516', '517', '518', '519', '520', '521', '522', '523', '524', '525', '526', '527', '528', '529', '530', '531');
+(15, 'user', 'user', 'user', 'user', 'Admin', '2020-02-11 11:37:46');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `brg_baru`
+--
+ALTER TABLE `brg_baru`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `brg_perencanaan`
+--
+ALTER TABLE `brg_perencanaan`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `brg_register`
+--
+ALTER TABLE `brg_register`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `brg_rusak`
+--
+ALTER TABLE `brg_rusak`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `daftar_barang`
@@ -501,90 +451,44 @@ ALTER TABLE `privilege`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `setting_bagian`
---
-ALTER TABLE `setting_bagian`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `setting_barcode`
---
-ALTER TABLE `setting_barcode`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `setting_jenis`
---
-ALTER TABLE `setting_jenis`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `setting_primary`
---
-ALTER TABLE `setting_primary`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `setting_qr`
---
-ALTER TABLE `setting_qr`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `setting_subbag`
---
-ALTER TABLE `setting_subbag`
- ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `brg_baru`
+--
+ALTER TABLE `brg_baru`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `brg_perencanaan`
+--
+ALTER TABLE `brg_perencanaan`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `brg_register`
+--
+ALTER TABLE `brg_register`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT for table `brg_rusak`
+--
+ALTER TABLE `brg_rusak`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `daftar_barang`
 --
 ALTER TABLE `daftar_barang`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `log_sistem`
 --
 ALTER TABLE `log_sistem`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=212;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=165;
 --
 -- AUTO_INCREMENT for table `privilege`
 --
 ALTER TABLE `privilege`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `setting_bagian`
---
-ALTER TABLE `setting_bagian`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `setting_barcode`
---
-ALTER TABLE `setting_barcode`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `setting_jenis`
---
-ALTER TABLE `setting_jenis`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `setting_primary`
---
-ALTER TABLE `setting_primary`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `setting_qr`
---
-ALTER TABLE `setting_qr`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `setting_subbag`
---
-ALTER TABLE `setting_subbag`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

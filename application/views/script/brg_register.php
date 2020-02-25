@@ -87,14 +87,6 @@
 
                 }
             })
-
-            // console.log(id);
-            // console.log(nama);
-            // console.log(kdReg);
-            // console.log(jenis);
-            // console.log(tgl);
-            // console.log(alamat);
-
         })
 
         // get modal barcode
@@ -116,19 +108,10 @@
                     $('#ket4Bc').text(data['ket4']);
                     var alamat = "<?php echo base_url() ?>upload/barcode/"+kdReg+".png";
                     $('#fotoBarcode').attr("src",alamat);
-                    
+
                     $('#modalBarcode').modal('show');
                 }
             })
-
-
-            // console.log(id);
-            // console.log(nama);
-            // console.log(kdReg);
-            // console.log(jenis);
-            // console.log(tgl);
-            // console.log(alamat);
-
 
         })
 
