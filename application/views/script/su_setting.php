@@ -32,7 +32,7 @@
         })
 
 
-        $('#btn_simpan').on('click',function(){
+        $('#btn_simpan_kode').on('click',function(){
             // update kode primary
             var primary = $('#primary').val();
             $.ajax({

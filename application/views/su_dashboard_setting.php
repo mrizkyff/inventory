@@ -195,7 +195,7 @@
 
                     </div>
                 </div>
-                <button class="btn btn-primary" id="_layout" style="float:right;">Simpan</button>
+                <button class="btn btn-primary" id="btn_simpan_kode" style="float:right;">Simpan</button>
             </div>
         </div>
         </div>
