@@ -270,10 +270,54 @@ class BrgRegister extends CI_Controller
 
     function getInfoQr(){
         $id = $this->input->post('id');
-        $data = $this->m_brgRegister->getBarangById($id);
+        $dt = $this->m_brgRegister->getBarangById($id);
+        $keterangan = $this->m_brgRegister->getFieldQr();
+        $judul = $keterangan[0]->judul;
+        $ket1 = $keterangan[0]->ket1;
+        $ket2 = $keterangan[0]->ket2;
+        $ket3 = $keterangan[0]->ket3;
+        $ket4 = $keterangan[0]->ket4;
+
+        $field1 = $dt[0]->$ket1;
+        $field2 = $dt[0]->$ket2;
+        $field3 = $dt[0]->$ket3;
+        $field4 = $dt[0]->$ket4;
+
+        $data = array(
+            'judul' => $judul,
+            'ket1' => $field1,
+            'ket2' => $field2,
+            'ket3' => $field3,
+            'ket4' => $field4
+        );
+
         echo json_encode($data);
     }
     
+    function getInfoBarcode(){
+        $id = $this->input->post('id');
+        $dt = $this->m_brgRegister->getBarangById($id);
+        $keterangan = $this->m_brgRegister->getFieldBarcode();
+        $judul = $keterangan[0]->judul;
+        $ket1 = $keterangan[0]->ket1;
+        $ket2 = $keterangan[0]->ket2;
+        $ket3 = $keterangan[0]->ket3;
+        $ket4 = $keterangan[0]->ket4;
+
+        $field1 = $dt[0]->$ket1;
+        $field2 = $dt[0]->$ket2;
+        $field3 = $dt[0]->$ket3;
+        $field4 = $dt[0]->$ket4;
+
+        $data = array(
+            'judul' => $judul,
+            'ket1' => $field1,
+            'ket2' => $field2,
+            'ket3' => $field3,
+            'ket4' => $field4
+        );
+        echo json_encode($data);
+    }
     
 }
 
