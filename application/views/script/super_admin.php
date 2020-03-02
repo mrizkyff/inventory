@@ -111,6 +111,28 @@
                 }
             })
         })
+        
+        // update item
+        $('#btn_update_user').on('click',function(){
+            var id = $('#kodes').val();
+            var nama = $('#namas').val();
+            var nip = $('#nips').val();
+            var username = $('#usernames').val();
+            var password = $('#passwords').val();
+            var level = $('#levels').val();
+            $.ajax({
+                url: '<?php echo base_url('SuperAdmin/updateUser') ?>',
+                method: 'POST',
+                dataType: 'JSON',
+                data: {id:id, nama:nama, nip:nip, username:username, password:password, level:level},
+                success: function(data){
+                    alert('Data user berhasil di update');
+                    $('#modalEdit').modal('hide'); 
+                    tampilDataUser(); 
+                }
+            })
+        })
+
 
         
 

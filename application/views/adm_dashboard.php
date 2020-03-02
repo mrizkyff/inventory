@@ -3,7 +3,9 @@
     $baru = $jumlah[1];
     $register = $jumlah[2];
     $rusak = $jumlah[3];
+    
 ?>
+<!-- <?php echo var_dump($idUser[0]->id) ?> -->
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

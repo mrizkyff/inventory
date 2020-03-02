@@ -34,6 +34,10 @@
             }
             return $hasil;
         }
+        function update($id, $data){
+            $this->db->where('id',$id);
+            return $this->db->update('privilege',$data);
+        }
     }
     
 ?>

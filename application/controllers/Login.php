@@ -17,12 +17,14 @@ class Login extends CI_Controller
             'password' => $password
         );
 
+        $idUser = $this->m_login->cariId($where);
         $cek = $this->m_login->cek_login("privilege",$where)->num_rows();
         if($cek > 0){
 
             $data_session = array(
                 'username' => $username,
-                'status' => "login"
+                'status' => "login",
+                'idUser' => $idUser[0]->id
             );
 
             $this->session->set_userdata($data_session);

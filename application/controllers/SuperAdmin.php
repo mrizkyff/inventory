@@ -36,6 +36,19 @@
             $data = $this->m_superAdmin->deleteUser($id);
             echo json_encode($data);
         }
+        function updateUser(){
+            $id = $this->input->post('id');
+            $dt = array(
+                'id' => $id = $this->input->post('id'),
+                'nama' => $nama = $this->input->post('nama'),
+                'nip' => $nip = $this->input->post('nip'),
+                'username' => $username = $this->input->post('username'),
+                'password' => $passwrd = $this->input->post('password'),
+                'level' => $level = $this->input->post('level')
+            );
+            $data = $this->m_superAdmin->update($id,$dt);
+            echo json_encode($data);
+        }
     }
     
 ?>

@@ -27,12 +27,15 @@
             <thead>
               <tr>
                 <th>No.</th>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Activity</th>
                 <th>id Barang</th>
                 <th>Item</th>
-                <th>id User</th>
+                <!-- <th>id User</th> -->
                 <th>Username</th>
+                <th width="200">Kerusakan</th>
+                <th>Perbaikan</th>
+                <th>Upgrade</th>
                 <th>Tanggal</th>
               </tr>
             <tbody id="show_logSys">
@@ -40,13 +43,16 @@
             <tfoot>
               <tr>
                 <th>No.</th>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Activity</th>
                 <th>id Barang</th>
                 <th>Item</th>
-                <th>id User</th>
+                <!-- <th>id User</th> -->
                 <th>Username</th>
                 <th>Tanggal</th>
+                <th>Kerusakan</th>
+                <th>Perbaikan</th>
+                <th>Upgrade</th>
               </tr>
             </tfoot>
             </thead>

@@ -16,12 +16,15 @@
                     for(i=0;i<data.length; i++){
                         html += '<tr>'+
                                     '<td>'+(i+1)+'</td>'+
-                                    '<td>'+data[i].id+'</td>'+
+                                    // '<td>'+data[i].id+'</td>'+
                                     '<td>'+data[i].activity+'</td>'+
                                     '<td>'+data[i].kode_brg+'</td>'+
                                     '<td>'+data[i].nama_brg+'</td>'+
-                                    '<td>'+data[i].kode_user+'</td>'+
+                                    // '<td>'+data[i].kode_user+'</td>'+
                                     '<td>'+data[i].edit_by+'</td>'+
+                                    '<td>'+data[i].kerusakan+'</td>'+
+                                    '<td>'+data[i].perbaikan+'</td>'+
+                                    '<td>'+data[i].upgrade+'</td>'+
                                     '<td>'+data[i].date+'</td>'+
                                 '</tr>';
                     }

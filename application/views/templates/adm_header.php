@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Inventory Barang PDAM Kota Semarang</title>
   <!-- Datatables -->
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
+  
 
   <!-- Data table -->
   <link rel="stylesheet" href="<?php echo base_url() ?>asset/plugins/datatables-bs4/css/dataTables.bootstrap4.css">

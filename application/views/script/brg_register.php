@@ -24,13 +24,17 @@
                                         
                                         '  <a class="text-primary" data-toggle="collapse" href="#collapseExample'+i+'" role="button" aria-expanded="false" aria-controls="collapseExample">'+
                                             '<i class="fas fa-info-circle"></i>'+
-                                        '</a>    '+data[i].namaBarang+
+                                        '</a>    '+data[i].nama+
                                         '<div class="collapse" id="collapseExample'+i+'">'+
                                         '<div class="card card-body">'+
                                         '<p>'+
                                             '<b>Nomor Seri :</b>'+data[i].seri+'<br>'+
                                             '<b>Keterangan :</b>'+data[i].keterangan+'<br>'+
-                                            '<b>Nomor Spesifikasi :</b>'+data[i].spec+
+                                            '<b>Spesifikasi :</b>'+data[i].spec+'<br>'+
+                                            '<b>Harga :</b>'+data[i].harga+'<br>'+
+                                            '<b>History Perbaikan :</b>'+data[i].perbaikan+'<br>'+
+                                            '<b>History Kerusakan :</b>'+data[i].kerusakan+'<br>'+
+                                            '<b>History Upgrade :</b>'+data[i].upgrade+
                                         '</p>'+
                                         '</div>'+
                                         '</div>'+
@@ -39,17 +43,16 @@
                                     '<td>'+data[i].bagian+'</td>'+
                                     '<td>'+data[i].subBagian+'</td>'+
                                     '<td>'+
-                                        '<a href="javascript:;" class="btn btn-secondary btn-xs item_qr" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-qrcode"></i> QRCode</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-primary btn-xs item_barcode" id="'+data[i].id+'" nama="'+data[i].namaBarang+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tanggal+'"> <i class="fas fa-barcode"></i> Barcode</a>    '+
+                                        '<a href="javascript:;" class="btn btn-secondary btn-xs item_qr" id="'+data[i].id+'" nama="'+data[i].nama+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tgl_register+'"> <i class="fas fa-qrcode"></i> QRCode</a>'+'  '+
+                                        '<a href="javascript:;" class="btn btn-primary btn-xs item_barcode" id="'+data[i].id+'" nama="'+data[i].nama+'" kdReg="'+data[i].kodeRegister+'" jenis="'+data[i].jenis+'" tgl="'+data[i].tgl_register+'"> <i class="fas fa-barcode"></i> Barcode</a>    '+
                                         data[i].kodeRegister+
                                     '</td>'+
                                     '<td>'+'<img src="<?php echo base_url()?>/upload/img/'+data[i].foto+'" alt="" class="img-thumbnail zoom">'+'</td>'+
-                                    '<td>'+data[i].tanggal+'</td>'+
+                                    '<td>'+data[i].tgl_register+'</td>'+
                                     '<td style "text-align:right;">'+
-                                        // '<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].id+'">   Edit   </a>'+' '+
-                                        // '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id+'" nama="'+data[i].nama+'"> Hapus </a>'+' '+
-                                        '<a href="javascript:;" class="btn btn-info btn-xs item_edit" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].kodeBarang+'" nama="'+data[i].namaBarang+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'">Edit</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].kodeBarang+'" arr="'+data+'" nama="'+data[i].namaBarang+'">Rusak</a>'+
+                                        '<a href="javascript:;" class="btn btn-info btn-xs item_edit" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].id+'" nama="'+data[i].nama+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'">Edit</a>'+'  '+
+                                        '<a href="javascript:;" class="btn btn-secondary btn-xs item_upgrade" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].id+'" nama="'+data[i].nama+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'" spec="'+data[i].spec+'" up="'+data[i].upgrade+'">Upgrade</a>'+'  '+
+                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_rusak" data="'+data[i].id+'" arr="'+data+'" nama="'+data[i].nama+'" rusak="'+data[i].kerusakan+'">Rusak</a>'+
                                     '</td>'+
                                 '</tr>';
                     }
@@ -61,55 +64,55 @@
         // get modal qr
         $('#show_brg_register').on('click','.item_qr',function(){
             var id = $(this).attr('id');
-            var nama = $(this).attr('nama');
+            var nama = '';
             var kdReg = $(this).attr('kdReg');
-            var jenis = $(this).attr('jenis');
-            var tgl = $(this).attr('tgl');
+            var jenis = '';
+            var tgl = '';
+            $.ajax({
+                url: '<?php echo base_url('BrgRegister/getInfoQr') ?>',
+                method: 'POST',
+                data: {id:id},
+                dataType: "JSON",
+                success: function(data){
+                    $('#judulQr').text(data['judul']);
+                    $('#ket1').text(data['ket1']);
+                    $('#ket2').text(data['ket2']);
+                    $('#ket3').text(data['ket3']);
+                    $('#ket4').text(data['ket4']);
+                    var alamat = "<?php echo base_url() ?>upload/qr/"+kdReg+".png";
+                    $('#fotoQr').attr("src",alamat);
+                    
+                    $('#modalQr').modal('show');
+                    // console.log(data[]);
 
-            
-
-            $('#namabrg').text(nama);
-            $('#jenisbrg').text(jenis);
-            $('#kdReg').text(kdReg);
-            $('#tglbrg').text(tgl);
-            var alamat = "<?php echo base_url() ?>upload/qr/"+kdReg+".png";
-            $('#fotoQr').attr("src",alamat);
-
-
-            console.log(id);
-            console.log(nama);
-            console.log(kdReg);
-            console.log(jenis);
-            console.log(tgl);
-            console.log(alamat);
-
-            $('#modalQr').modal('show');
+                }
+            })
         })
 
         // get modal barcode
         $('#show_brg_register').on('click','.item_barcode',function(){
             var id = $(this).attr('id');
-            var nama = $(this).attr('nama');
             var kdReg = $(this).attr('kdReg');
-            var jenis = $(this).attr('jenis');
-            var tgl = $(this).attr('tgl');
 
-            $('#nmbrg').text(nama);
-            $('#jnsbrg').text(jenis);
-            $('#kdreg').text(kdReg);
-            $('#tgl').text(tgl);
-            var alamat = "<?php echo base_url() ?>upload/barcode/"+kdReg+".png";
-            $('#fotoBarcode').attr("src",alamat);
+            $.ajax({
+                url: '<?php echo base_url('BrgRegister/getInfoBarcode')?>',
+                data: {id:id},
+                method: 'POST',
+                dataType: 'JSON',
+                success: function(data){
+                    console.log(data);
+                    $('#judulBc').text(data['judul']);
+                    $('#ket1Bc').text(data['ket1']);
+                    $('#ket2Bc').text(data['ket2']);
+                    $('#ket3Bc').text(data['ket3']);
+                    $('#ket4Bc').text(data['ket4']);
+                    var alamat = "<?php echo base_url() ?>upload/barcode/"+kdReg+".png";
+                    $('#fotoBarcode').attr("src",alamat);
 
-            console.log(id);
-            console.log(nama);
-            console.log(kdReg);
-            console.log(jenis);
-            console.log(tgl);
-            console.log(alamat);
+                    $('#modalBarcode').modal('show');
+                }
+            })
 
-
-            $('#modalBarcode').modal('show');
         })
 
         // get modal edit
@@ -136,9 +139,34 @@
         // get modal rusak
         $('#show_brg_register').on('click','.item_rusak',function(){
             var nama = $(this).attr('nama');
+            var id = $(this).attr('data');
+            var rusak = $(this).attr('rusak');
             console.log(nama);
+            console.log(id);    
+            $('#namez').val(nama);
+            $('#idz').val(id);
+            
             $("#textRusak").text("Konfirmasi bahwa barang "+nama+" rusak?");
             $('#modalRusak').modal('show');
+
+            // aksi rusak
+            $('#btn_konfirmasi').on('click',function(){
+                var kerusakan = $('#kerusakan').val();
+                // kerusakan = rusak+ ";"+ " update: "+kerusakan;
+                var username = $('#logUsernames').val();
+                var action = $('#actions').val();
+                $.ajax({
+                    url: '<?php echo base_url("BrgRegister/barangRusak")?>',
+                    method: "POST",
+                    data: {id:id, kerusakan:kerusakan, nama:nama, username:username, action:action},
+                    dataType: "JSON",
+                    success: function(data){
+                        alert('Data berhasil diupdate');
+                        $('#modalRusak').modal('hide');
+                        tampilDataBarang();
+                    }
+                })
+            })
             
         })
 
@@ -156,7 +184,7 @@
             $.ajax({
                 url: "<?php echo base_url('BrgRegister/updateBarang') ?>",
                 method: "POST",
-                dataType: "JSON",
+                // dataType: "JSON",
                 data: {idBarang:idBarang, namaBarang:namaBarang, bagian:bagian, subbag:subbag, username:username, action:action, idReg:idReg, jenis:jenis},
                 success: function(data){
                     console.log(data);
@@ -166,6 +194,42 @@
                 }
             })
         })
+
+
+        // get modal upgrade
+        $('#show_brg_register').on('click','.item_upgrade',function(){
+            var id = $(this).attr('data');
+            var nama = $(this).attr('nama');
+            var username = $('#logUsernames').val();
+            var action = $('#actionx').val();
+            var up = $(this).attr('up');
+            
+
+            $('#namex').val(nama);
+            $('#idx').val(id);
+            $('#modalUpgrade').modal('show');
+
+            // aksi perbaikan
+            $('#btn_upgrade').on('click',function(){
+            var upgrade = $('#upgrade').val();
+            // upgrade = up+"; "+"update: "+upgrade;
+                $.ajax({
+                    url: '<?php echo base_url('BrgRusak/upgrade') ?>',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: {id:id, nama:nama, username:username, action:action, upgrade:upgrade},
+                    success: function(data){
+                        $('#modalUpgrade').modal('hide');
+                        $('#upgrade').val("");
+                        alert('Barang berhasil di upgrade');
+                        tampilDataBarang();
+                    }
+                })
+                
+            })
+        })
+
+        
 
 
 

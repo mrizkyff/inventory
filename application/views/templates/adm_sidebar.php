@@ -66,10 +66,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url().'administrator/scan' ?>" class="nav-link">
+            <a href="<?php echo base_url().'administrator/summary' ?>" class="nav-link">
               <i class="nav-icon fas fa-swatchbook"></i>
               <p>
-                Rangkuman
+                Summary
               </p>
             </a>
           </li>
@@ -86,6 +86,14 @@
               <i class="nav-icon fas fa-history"></i>
               <p>
                 Log System
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url().'administrator/setting' ?>" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Pengaturan Program
               </p>
             </a>
           </li>

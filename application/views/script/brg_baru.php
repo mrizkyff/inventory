@@ -2,7 +2,7 @@
     $(document).ready(function(){
         tampilDataBarang();
         $('#tableBarangBaru').DataTable({
-            "order": [[10,"desc"]]
+            "order": [[9,"desc"]]
         });
 
         function tampilDataBarang(){
@@ -17,22 +17,18 @@
                     for(i=0;i<data.length; i++){
                         html += '<tr>'+
                                     '<td>'+(i+1)+'</td>'+
-                                    '<td>'+data[i].kodeBarang+'</td>'+
+                                    '<td>'+data[i].id+'</td>'+
                                     '<td>'+data[i].jenis+'</td>'+
                                     '<td>'+data[i].nama+'</td>'+
                                     '<td>'+data[i].merek+'</td>'+
                                     '<td>'+data[i].seri+'</td>'+
-                                    // '<td>'+data[i].harga+'</td>'+
-                                    // '<td>'+data[i].jumlah+'</td>'+
                                     '<td>'+data[i].keterangan+'</td>'+
                                     '<td>'+data[i].spec+'</td>'+
                                     '<td>'+'<img src="<?php echo base_url()?>/upload/img/'+data[i].foto+'" alt="" class="img-thumbnail zoom">'+'</td>'+
-                                    '<td>'+data[i].tanggal+'</td>'+
+                                    '<td>'+data[i].tgl_baru+'</td>'+
                                     '<td style "text-align:right;">'+
-                                        // '<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].id+'">   Edit   </a>'+' '+
-                                        // '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id+'" nama="'+data[i].nama+'"> Hapus </a>'+' '+
                                         '<a href="javascript:;" class="btn btn-info btn-xs item_foto" data="'+data[i].id+'" nama="'+data[i].nama+'">Foto</a>'+'  '+
-                                        '<a href="javascript:;" class="btn btn-success btn-xs item_register" data="'+data[i].kodeBarang+'" arr="'+data+'" nama="'+data[i].nama+'">Register</a>'+
+                                        '<a href="javascript:;" class="btn btn-success btn-xs item_register" data="'+data[i].id+'" arr="'+data+'" nama="'+data[i].nama+'">Register</a>'+
                                     '</td>'+
                                 '</tr>';
                     }
@@ -50,26 +46,7 @@
             $('[name="nama"]').val(nama);
         });
 
-        // update foto
-        // $('#btn_upload').on('click',function(){
-        //     var id = $('#textid').val();
-        //     var foto = $('#foto').val();
-        //     $.ajax({
-        //         type : "POST",
-        //         url : '<?php echo base_url('BrgBaru/do_upload') ?>',
-        //         dataType : "JSON",
-        //         data    : {id:id , foto:foto},
-        //         success : function(data){
-        //             $('#modalFoto').modal('hide');
-        //             $('[name="id"]').val("");
-        //             $('[name="foto"]').val("");
-        //             tampilDataBarang();
-        //         }
-        //     });
-        //     return false;
-        // })
         $(document).ready(function(){ 
-
             // upload foto
             $('#submit').submit(function(e){
                 e.preventDefault(); 
@@ -94,22 +71,14 @@
         // get modal register
         $('#show_brg_baru').on('click','.item_register',function(){
             var id = $(this).attr('data');
-            var nm = $(this).attr('nama');
 
             
             // variabel dari database
             var kodeBarang;
             var jenis;
             var nama;
-            var merek;
-            var seri;
-            var keterangan;
-            var spec;
-            var foto;
-            var idBaru;
-
             $('#modalRegister').modal('show');
-            $('[name="namas"]').val(nama);
+
             $('[name="ids"]').val(id);
             $.ajax({
                 url: "<?php echo base_url('BrgBaru/getBarangByCode') ?>",
@@ -118,16 +87,9 @@
                 data: {id:id},
                 success: function(data){
                     // console.log(data);
-                    kodeBarang = data[0].kodeBarang;
-                    jenis = data[0].jenis;
-                    nama = data[0].nama;
-                    merek = data[0].merek;
-                    seri = data[0].seri;
-                    keterangan = data[0].keterangan;
-                    spec = data[0].spec;
-                    foto = data[0].foto;        
-                    idBaru = data[0].id;          
-                    
+                    kodeBarang = data[0].id;
+                    jenis = data[0].jenis; 
+                    nama = data[0].nama;          
                 }
             })
 
@@ -137,29 +99,20 @@
                 var bagian = $('#bagian').val();
                 var subbag = $('#subbag').val();
                 // console.log(bagian);
-                // console.log(subbag);
+                console.log(nama);
                 $.ajax({
                     url: "<?php echo base_url('BrgBaru/registerBarang') ?>",
                     method: "POST",
-                    dataType: "JSON",
-                    data: {kodeBarang:kodeBarang,jenis:jenis, nama:nama, merek:merek, seri:seri, keterangan:keterangan, spec:spec, foto:foto, bagian:bagian, subbag:subbag, id:id, username:username, action:action, idBaru:idBaru},
+                    // dataType: "JSON",
+                    data: {kodeBarang:kodeBarang,jenis:jenis, bagian:bagian, subbag:subbag, id:id, username:username, action:action, nama:nama},
                     success: function(data){
+                        console.log(data);
                         alert("Registrasi barang berhasil!");
                         $('#modalRegister').modal('hide');
-                    }
-                })
-
-                $.ajax({
-                    url: "<?php echo base_url('BrgBaru/hapusBarang') ?>",
-                    method: "POST",
-                    dataType: "JSON",
-                    data: {idBaru:idBaru},
-                    success: function(data){
-                        console.log("hapus sukses");
                         tampilDataBarang();
                     }
                 })
-                $('$modalRegister').modal('hide');
+
             })
 
 
