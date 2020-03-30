@@ -69,7 +69,7 @@
             <a href="<?php echo base_url().'administrator/summary' ?>" class="nav-link">
               <i class="nav-icon fas fa-swatchbook"></i>
               <p>
-                Rangkuman
+                Summary
               </p>
             </a>
           </li>
