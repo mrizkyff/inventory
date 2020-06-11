@@ -80,7 +80,7 @@
 
 
             // menghitung kode register untuk qr
-            $prefix = $this->m_brgBaru->kodePrimary();
+            $prefix = $this->m_brgBaru->kodePrimary('primary');
             $prefix = $prefix[0]->primary;
             
             $kdBagian = '';
