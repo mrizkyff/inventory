@@ -18,7 +18,7 @@
                                     '<td>'+(i+1)+'</td>'+
                                     // '<td>'+data[i].id+'</td>'+
                                     '<td>'+data[i].activity+'</td>'+
-                                    '<td>'+data[i].kode_brg+'</td>'+
+                                    // '<td>'+data[i].kode_brg+'</td>'+
                                     '<td>'+data[i].nama_brg+'</td>'+
                                     // '<td>'+data[i].kode_user+'</td>'+
                                     '<td>'+data[i].edit_by+'</td>'+
