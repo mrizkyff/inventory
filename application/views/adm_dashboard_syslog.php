@@ -29,7 +29,7 @@
                 <th>No.</th>
                 <!-- <th>ID</th> -->
                 <th>Activity</th>
-                <th>id Barang</th>
+                <!-- <th>id Barang</th> -->
                 <th>Item</th>
                 <!-- <th>id User</th> -->
                 <th>Username</th>
@@ -45,7 +45,7 @@
                 <th>No.</th>
                 <!-- <th>ID</th> -->
                 <th>Activity</th>
-                <th>id Barang</th>
+                <!-- <th>id Barang</th> -->
                 <th>Item</th>
                 <!-- <th>id User</th> -->
                 <th>Username</th>
