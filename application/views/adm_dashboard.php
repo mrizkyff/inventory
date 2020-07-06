@@ -109,7 +109,7 @@
                 <th>Activity</th>
                 <th>id Barang</th>
                 <th>Item</th>
-                <th>id User</th>
+                <!-- <th>id User</th> -->
                 <th>Username</th>
                 <th>Tanggal</th>
               </tr>
@@ -122,7 +122,7 @@
                 <th>Activity</th>
                 <th>id Barang</th>
                 <th>Item</th>
-                <th>id User</th>
+                <!-- <th>id User</th> -->
                 <th>Username</th>
                 <th>Tanggal</th>
               </tr>
