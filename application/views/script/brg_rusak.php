@@ -49,7 +49,7 @@
                                     '<td>'+'<img src="<?php echo base_url()?>/upload/img/'+data[i].foto+'" alt="" class="img-thumbnail zoom">'+'</td>'+
                                     '<td>'+data[i].tgl_rusak+'</td>'+
                                     '<td style "text-align:right;">'+
-                                        '<a href="javascript:;" class="btn btn-info btn-xs item_upgrade" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].id+'" nama="'+data[i].nama+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'" spec="'+data[i].spec+'" up="'+data[i].upgrade+'">Upgrade</a>'+'  '+
+                                        // '<a href="javascript:;" class="btn btn-info btn-xs item_upgrade" jenis="'+data[i].jenis+'" id="'+data[i].id+'" data="'+data[i].id+'" nama="'+data[i].nama+'" bag="'+data[i].bagian+'" subbag="'+data[i].subBagian+'" spec="'+data[i].spec+'" up="'+data[i].upgrade+'">Upgrade</a>'+'  '+
                                         '<a href="javascript:;" class="btn btn-success btn-xs item_perbaikan" data="'+data[i].id+'" arr="'+data+'" nama="'+data[i].nama+'" repair="'+data[i].perbaikan+'">Perbaikan</a>'+
                                     '</td>'+
                                 '</tr>';
