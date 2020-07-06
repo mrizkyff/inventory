@@ -154,7 +154,7 @@
                 var kerusakan = $('#kerusakan').val();
                 // kerusakan = rusak+ ";"+ " update: "+kerusakan;
                 var username = $('#logUsernames').val();
-                var action = $('#actions').val();
+                var action = $('#actionz').val();
                 $.ajax({
                     url: '<?php echo base_url("BrgRegister/barangRusak")?>',
                     method: "POST",
